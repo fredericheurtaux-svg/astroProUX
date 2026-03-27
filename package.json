@@ -1,14 +1,12 @@
 {
-  "name": "mon-site-pro",
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "start": "node ./dist/server/entry.mjs"
   },
   "dependencies": {
-    "astro": "^5.0.0",
-    "@astrojs/node": "^9.0.0"
+    "astro": "^5.x",
+    "@astrojs/node": "^10.x"
   }
 }
