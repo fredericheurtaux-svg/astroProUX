@@ -74,7 +74,7 @@ export function Home() {
       <section className="max-w-5xl mx-auto px-6 lg:px-8 pt-24 pb-32 md:pt-32 md:pb-40">
         <div className="max-w-4xl">
           <div className="mb-8">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 text-gray-900 tracking-tight leading-[1.1]">
+            <h1 className="text-5xl md:text-9xl lg:text-7xl mb-6 text-gray-900 tracking-tight leading-[1.1]">
               Frédéric Heurtaux
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-4">
