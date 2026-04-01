@@ -6,7 +6,7 @@ export function SNCFReseauRefonte() {
   return (
     <div className="bg-white">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-12 md:pt-32">
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-10 md:pt-10">
         <Link
           to="/case-studies"
           className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-8 transition-colors"
@@ -17,7 +17,7 @@ export function SNCFReseauRefonte() {
       </section>
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-20 md:pb-28">
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-8 md:pb-6">
         <div className="max-w-4xl mb-12">
           <p className="text-sm text-gray-500 mb-4 italic">Designer la complexité</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 text-gray-900 tracking-tight leading-[1.05]">
@@ -41,7 +41,29 @@ export function SNCFReseauRefonte() {
           </div>
           <div>
             <p className="text-gray-500 mb-1">Démarche</p>
-            <p className="text-gray-900">15 interviews, ateliers, prototypes détaillés</p>
+            <p className="text-gray-900">15 interviews, ateliers, prototypes détaillés, aide rédaction US</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Schema Invite */}
+      <section className="max-w-7xl mx-auto px-2 lg:px-4 pb-8">
+        <div className="bg-blue-50 border border-blue-100 rounded-sm p-3 md:p-2">
+          <div className="flex items-start gap-2">
+            <div>
+              <p className="text-blue-800 leading-relaxed mb-1">
+                Si vous aimez les schémas, découvrez un résumé visuel de cette étude de cas, illustrant l'approche méthodologique et les résultats clés.
+              </p>
+              <a 
+                href="#schema-resume" 
+                className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-800 font-medium"
+              >
+                Voir le schéma de synthèse
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -245,28 +267,43 @@ export function SNCFReseauRefonte() {
           {/* Right Column - Illustrations */}
           <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-24 lg:self-start">
             
-            <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1763048344624-ca11eb6a37c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwdHJhaW4lMjBpbmZyYXN0cnVjdHVyZSUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzc0NTMzMjIyfDA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Infrastructure ferroviaire SNCF Réseau"
-                className="w-full h-full object-cover"
-              />
+            <div className="space-y-3">
+              <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden">
+                <ImageWithFallback
+                  src="/case-studies/Opipro-SR.jpg"
+                  alt="Chantier de renouvellement en suite rapide SNCF Réseau"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Chantier de renouvellement en suite rapide SNCF Réseau
+              </p>
             </div>
 
-            <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1763048344624-ca11eb6a37c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwdHJhaW4lMjBpbmZyYXN0cnVjdHVyZSUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzc0NTMzMjIyfDA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Prototype application 1"
-                className="w-full h-full object-cover"
-              />
+            <div className="space-y-3">
+              <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden">
+                <ImageWithFallback
+                  src="/case-studies/Opipro-complexite.png"
+                  alt="Prototyper la complexité, car le diable est dans les détails"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Prototyper la complexité, car le diable est dans les détails
+              </p>
             </div>
 
-            <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1763048344624-ca11eb6a37c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwdHJhaW4lMjBpbmZyYXN0cnVjdHVyZSUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzc0NTMzMjIyfDA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Prototype application 2"
-                className="w-full h-full object-cover"
-              />
+            <div className="space-y-3">
+              <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden">
+                <ImageWithFallback
+                  src="/case-studies/Opipro-Figma.png"
+                  alt="Des sections figma pour guider les sprints."
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Des sections figma pour guider les sprints.
+              </p>
             </div>
 
             <div className="bg-gray-50 p-8 rounded-sm">
@@ -279,6 +316,25 @@ export function SNCFReseauRefonte() {
 
           </div>
 
+        </div>
+      </section>
+
+      {/* Schema Resume */}
+      <section id="schema-resume" className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
+        <div className="bg-gray-50 rounded-sm p-8 md:p-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl text-gray-900 mb-4">Résumé visuel de l'approche méthodologique et des résultats clés de cette étude de cas</h2>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-white rounded-sm p-8 shadow-sm">
+              <ImageWithFallback
+                src="/case-studies/OPIPRO.png"
+                alt="Schéma de synthèse - SNCF Réseau Refonte Stratégique"
+                className="w-full h-auto rounded-sm"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

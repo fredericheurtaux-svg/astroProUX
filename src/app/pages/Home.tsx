@@ -73,15 +73,6 @@ export function Home() {
       {/* Hero Section */}
       <section className="max-w-5xl mx-auto px-6 lg:px-8 pt-24 pb-32 md:pt-32 md:pb-40">
         <div className="max-w-4xl">
-          <div className="mb-8">
-            <h1 className="text-5xl md:text-9xl lg:text-7xl mb-6 text-gray-900 tracking-tight leading-[1.1]">
-              Frédéric Heurtaux
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-4">
-              UX Designer & UX Researcher
-            </p>
-          </div>
-          
           <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl">
             <p>
               J'aide les entreprises à concevoir des produits numériques utiles et utilisables, 
@@ -193,7 +184,7 @@ export function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 md:gap-x-12 md:gap-y-16 items-center justify-items-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-8 md:gap-y-12 items-center justify-items-center">
             <div className="text-gray-800 opacity-80 hover:opacity-100 transition-opacity">
               <SNCFLogo />
             </div>

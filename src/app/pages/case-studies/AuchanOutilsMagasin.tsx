@@ -6,7 +6,7 @@ export function AuchanOutilsMagasin() {
   return (
     <div className="bg-white">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-12 md:pt-32">
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-10 md:pt-10">
         <Link
           to="/case-studies"
           className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-8 transition-colors"
@@ -17,7 +17,7 @@ export function AuchanOutilsMagasin() {
       </section>
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-20 md:pb-28">
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-8 md:pb-6">
         <div className="max-w-4xl mb-12">
           <p className="text-sm text-gray-500 mb-4 italic">Moderniser sans perdre le terrain</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 text-gray-900 tracking-tight leading-[1.05]">
@@ -46,12 +46,17 @@ export function AuchanOutilsMagasin() {
         </div>
       </section>
 
+
+
+
+
+
       {/* Main Content - 2 Columns Layout */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-32">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+      <section className="max-w-[1440px] mx-auto px-6 lg:px-8 pb-32">
+        <div className="grid lg:grid-cols-13 gap-12 lg:gap-16">
           
           {/* Left Column - Content */}
-          <div className="lg:col-span-7 space-y-20">
+          <div className="lg:col-span-6 space-y-20">
             
             {/* Contexte */}
             <div>
@@ -288,31 +293,48 @@ export function AuchanOutilsMagasin() {
           </div>
 
           {/* Right Column - Illustrations */}
-          <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-24 lg:self-start">
+          <div className="lg:col-span-6 space-y-8 lg:sticky lg:top-24 lg:self-start">
             
-            <div className="aspect-[3/4] bg-gray-100 rounded-sm overflow-hidden">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1601597110214-8d4fbb4d3cbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXBlcm1hcmtldCUyMHN0b3JlJTIwc2hlbGZyfGVufDF8fHx8MTc3NDUzMzIyMnww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Interface mobile - Vérification balisage"
-                className="w-full h-full object-cover"
-              />
+            <div className="space-y-3">
+              <div className="aspect-[16/10] bg-gray-100 rounded-sm overflow-hidden">
+                <ImageWithFallback
+                  src="/case-studies/Auchan-Observations.png"
+                  alt="Observation Interface mobile - Vérification balisage"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Extrait des restitutions d'observations terrain - balisage poissonnerie
+              </p>
             </div>
 
-            <div className="aspect-[16/10] bg-gray-100 rounded-sm overflow-hidden">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxzdXBlcm1hcmtldCUyMHN0b3JlJTIwc2hlbGZyfGVufDF8fHx8MTc3NDUzMzIyMnww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Interface desktop - Implémentation produits"
-                className="w-full h-full object-cover"
-              />
+            <div className="space-y-3">
+              <div className="aspect-[16/10] bg-gray-100 rounded-sm overflow-hidden">
+                <ImageWithFallback
+                  src="/case-studies/Auchan-Wireframe.png"
+                  alt="Wireframe - Interface Mobile - Balisage réglementaire poissonnerie"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                  Wireframe - Interface Mobile - Balisage réglementaire poissonnerie
+              </p>
             </div>
 
-            <div className="aspect-[3/4] bg-gray-100 rounded-sm overflow-hidden">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXBlcm1hcmtldCUyMHdvcmtlciUyMG1vYmlsZXxlbnwxfHx8fDE3NzQ1MzMyMjJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Interface mobile - Traçabilité"
-                className="w-full h-full object-cover"
-              />
+            <div className="space-y-3">
+              <div className="aspect-[16/10] bg-gray-100 rounded-sm overflow-hidden">
+                <ImageWithFallback
+                  src="/case-studies/Auchan-Brief.png"
+                  alt="Interface Web Marges - Extrait du brief pour les UI et les développeurs"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                "Interface Web Marges - Extrait du brief pour les UI et les développeurs"
+              </p>
             </div>
+
+  
 
             <div className="bg-gray-50 p-8 rounded-sm">
               <p className="text-sm text-gray-500 mb-4">Applications développées</p>
@@ -321,6 +343,7 @@ export function AuchanOutilsMagasin() {
                 <li>• Aide à l'implémentation des produits</li>
                 <li>• Dons aux associations</li>
                 <li>• Traçabilité poissonnerie</li>
+                <li>• Vérification des changements de prix</li>
               </ul>
             </div>
 

@@ -46,6 +46,35 @@ export function SNCFReseauNomadeVigirail() {
         </div>
       </section>
 
+      {/* Schema Invite */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+        <div className="bg-blue-50 border border-blue-200 rounded-sm p-6 md:p-8">
+          <div className="flex items-start gap-4">
+            <div className="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium text-blue-900 mb-2">Si vous aimez les schémas</h3>
+              <p className="text-blue-800 leading-relaxed mb-4">
+                Découvrez ci-dessous un résumé visuel de cette étude de cas, qui illustre 
+                l'approche méthodologique et les résultats clés.
+              </p>
+              <a 
+                href="#schema-resume" 
+                className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-800 font-medium"
+              >
+                Voir le schéma de synthèse
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content - 2 Columns Layout */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-32">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
@@ -242,24 +271,34 @@ export function SNCFReseauNomadeVigirail() {
             
             {/* Mobile Screenshot 1 */}
             <div className="max-w-[280px] mx-auto">
-              <div className="aspect-[9/19] bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1766475553400-f4b1e95d8429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwc2FmZXR5JTIwZXF1aXBtZW50JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzQ1MzMyMjN8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Interface mobile Nomade"
-                  className="w-full h-full object-cover"
-                />
+              <div className="space-y-3">
+                <div className="aspect-[9/19] bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                  <ImageWithFallback
+                    src="https://images.unsplash.com/photo-1766475553400-f4b1e95d8429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwc2FmZXR5JTIwZXF1aXBtZW50JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzQ1MzMyMjN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                    alt="Interface mobile Nomade"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed text-center">
+                  Interface mobile Nomade
+                </p>
               </div>
               <p className="text-sm text-gray-500 text-center mt-3">Application Nomade</p>
             </div>
 
             {/* Mobile Screenshot 2 */}
             <div className="max-w-[280px] mx-auto">
-              <div className="aspect-[9/19] bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1766475553400-f4b1e95d8429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwc2FmZXR5JTIwZXF1aXBtZW50JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzQ1MzMyMjN8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Interface mobile Vigirail"
-                  className="w-full h-full object-cover"
-                />
+              <div className="space-y-3">
+                <div className="aspect-[9/19] bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                  <ImageWithFallback
+                    src="https://images.unsplash.com/photo-1766475553400-f4b1e95d8429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwc2FmZXR5JTIwZXF1aXBtZW50JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzQ1MzMyMjN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                    alt="Interface mobile Vigirail"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed text-center">
+                  Interface mobile Vigirail
+                </p>
               </div>
               <p className="text-sm text-gray-500 text-center mt-3">Application Vigirail</p>
             </div>
@@ -280,16 +319,43 @@ export function SNCFReseauNomadeVigirail() {
             </div>
 
             {/* Field Photo */}
-            <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1766475553400-f4b1e95d8429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwc2FmZXR5JTIwZXF1aXBtZW50JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzQ1MzMyMjN8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Observation terrain"
-                className="w-full h-full object-cover"
-              />
+            <div className="space-y-3">
+              <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden">
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1766475553400-f4b1e95d8429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwc2FmZXR5JTIwZXF1aXBtZW50JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzQ1MzMyMjN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Observation terrain"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Observation terrain
+              </p>
             </div>
 
           </div>
 
+        </div>
+      </section>
+
+      {/* Schema Resume */}
+      <section id="schema-resume" className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
+        <div className="bg-gray-50 rounded-sm p-8 md:p-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl text-gray-900 mb-4">Schéma de synthèse</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Résumé visuel de l'approche méthodologique et des résultats clés de cette étude de cas
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-sm p-8 shadow-sm">
+              <ImageWithFallback
+                src="/case-studies/schema-resume-sncf-nomade.png"
+                alt="Schéma de synthèse - SNCF Réseau Nomade Vigirail"
+                className="w-full h-auto rounded-sm"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

@@ -60,7 +60,7 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500 mb-1">Email</p>
-                      <a href="mailto:contact@fredericheurtaux.fr" className="text-gray-900 hover:underline">
+                      <a href="mailto:contact[@]fredericheurtaux.fr" className="text-gray-900 hover:underline">
                         contact@fredericheurtaux.fr
                       </a>
                     </div>

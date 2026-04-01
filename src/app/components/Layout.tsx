@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from "react-router";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { ScrollToTop } from "./ScrollToTop";
 
@@ -19,7 +19,7 @@ export function Layout() {
     if (href === '/') {
       return location.pathname === '/';
     }
-    return location.pathname.startsWith(href);
+    return location.pathname.indexOf(href) === 0;
   };
 
   return (
@@ -30,17 +30,17 @@ export function Layout() {
         <nav className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-20">
               <Link to="/" className="text-lg text-gray-900" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600 }}>
                 Frédéric Heurtaux
               </Link>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/frederic-heurtaux/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-gray-600 hover:text-gray-900 transition-colors"
               >
-                LinkedIn
+                <Linkedin className="w-5 h-5" />
               </a>
             </div>
 
