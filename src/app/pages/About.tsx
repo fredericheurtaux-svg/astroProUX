@@ -6,46 +6,39 @@ export function About() {
     {
       period: "2015 - Présent",
       role: "UX Designer & UX Researcher freelance",
-      description: "Accompagnement de PME et grands groupes sur des projets de transformation digitale, refonte d'applications métier, conception d'outils internes et plateformes B2B."
+      description: "Bascule progressive vers l’UX, d’abord dans des environnements de transformation SI complexes, puis comme consultant senior indépendant"
     },
     {
-      period: "2012 - 2015",
-      role: "UX Designer senior – Agence digitale",
-      description: "Lead UX sur des projets variés (banque, assurance, santé, retail). Management d'équipe et relation client."
+      period: "2005 - 2015",
+      role: "UX Designer senior – Business Analyst",
+      description: "Évolution vers des rôles de consultant senior, responsable d’offres et d’accompagnement de projets de transformation documentaire et workflow. De plus en plus de contextes grands comptes à articuler enjeux métier, organisation et solutions numériques."
     },
     {
-      period: "2008 - 2012",
-      role: "UX Designer – Éditeur de logiciels B2B",
-      description: "Conception d'interfaces pour des solutions SaaS destinées aux professionnels. Recherche utilisateur et tests d'usabilité."
+      period: "avant 2005",
+      role: "Developpeur, chef de projet GED/Workflow/BPM",
+      description: "Numérisation de procesDébuts comme ingénieur d’études puis expert BPM/GED, avec une forte dose de conception et de réalisation d’applications métiers, de dématérialisation. Cette période construit son socle technique et fonctionnel sur des projets complexes dans le public et le privé.sus métier."
     }
   ];
 
   const education = [
     {
-      year: "2008",
-      degree: "Master Design d'interaction",
-      school: "École spécialisée en design numérique"
-    },
-    {
-      year: "2006",
-      degree: "Licence Sciences cognitives",
-      school: "Université"
+      year: "1995",
+      degree: "Master Génie Informatique",
+      school: "Université de Grenoble"
     }
   ];
 
   const certifications = [
-    "Certification Nielsen Norman Group (UX)",
-    "Formation recherche utilisateur avancée",
-    "Accessibilité numérique (RGAA)"
+    "2023 - Certificaiton B2 anglais (Learning 360))",
+    "2021 - Eco-conception numérique (GreenIT)",
+    "2017 - UI Design (Usabilis)",
+    "2016 - UX Design (Usabilis)"
   ];
 
   const sectors = [
-    "Banque et assurance",
-    "Santé et médical",
-    "Industrie et logistique",
-    "Administration publique",
-    "Éditeurs SaaS B2B",
-    "Retail et e-commerce"
+    "Assurance et Banque",
+    "Retail et e-commerce",
+    "Secteur publique"
   ];
 
   return (
@@ -179,7 +172,7 @@ export function About() {
         </div>
       </section>
 
-      {/* Expertise Summary */}
+      {/* Expertise Summary 
       <section className="bg-gray-50 py-20">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl mb-8 text-gray-900">
@@ -201,6 +194,7 @@ export function About() {
           </div>
         </div>
       </section>
+      */} 
 
       {/* CTA */}
       <section className="py-20">

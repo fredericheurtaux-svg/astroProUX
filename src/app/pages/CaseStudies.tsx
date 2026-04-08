@@ -28,7 +28,7 @@ export function CaseStudies() {
       subtitle: "Le live design pour accélérer",
       keyInfo: ["12 mois", "13 apps dans le programme", "14 000 utilisateurs"],
       promise: "Concevoir des applications mobiles terrain en environnement exigeant, sous forte contrainte d'usage.",
-      imageUrl: "/case-studies/sncf-nomade.svg",
+      imageUrl: "/case-studies/NOMAD-liveTSP.png",
       size: "standard"
     },
     {
@@ -37,7 +37,7 @@ export function CaseStudies() {
       subtitle: "Faire de l'UX dans un cadre très contraint",
       keyInfo: ["4 mois 20 jours", "3 ateliers", "mobile + desktop"],
       promise: "Introduire une démarche centrée utilisateur dans un cadre institutionnel, avec peu de temps et peu de marge de manœuvre.",
-      imageUrl: "/case-studies/dreal-comfluence.svg",
+      imageUrl: "/case-studies/DREAL-route.png",
       size: "large"
     }
   ];

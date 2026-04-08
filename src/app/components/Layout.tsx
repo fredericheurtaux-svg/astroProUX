@@ -32,7 +32,7 @@ export function Layout() {
             {/* Logo */}
             <div className="flex items-center gap-20">
               <Link to="/" className="text-lg text-gray-900" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600 }}>
-                Frédéric Heurtaux
+                Frédéric HeurtaUX
               </Link>
               <a 
                 href="https://www.linkedin.com/in/frederic-heurtaux/" 

@@ -60,8 +60,8 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500 mb-1">Email</p>
-                      <a href="mailto:contact[@]fredericheurtaux.fr" className="text-gray-900 hover:underline">
-                        contact@fredericheurtaux.fr
+                      <a href="mailto:frederic.pro[@]heurtaux.me" className="text-gray-900 hover:underline">
+                        frederic.pro[@]heurtaux.me
                       </a>
                     </div>
                   </div>
@@ -100,7 +100,7 @@ export function Contact() {
               <div className="pt-8 border-t border-gray-200">
                 <h3 className="text-lg mb-4 text-gray-900">Disponibilité</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Actuellement disponible pour de nouveaux projets.
+                  Actuellement disponible 3j/sem pour de nouveaux projets.
                 </p>
                 <Link
                   to="/appointment"

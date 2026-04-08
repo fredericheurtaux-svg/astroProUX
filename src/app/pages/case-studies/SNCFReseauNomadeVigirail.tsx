@@ -269,29 +269,13 @@ export function SNCFReseauNomadeVigirail() {
           {/* Right Column - Illustrations */}
           <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-24 lg:self-start">
             
-            {/* Mobile Screenshot 1 */}
-            <div className="max-w-[280px] mx-auto">
-              <div className="space-y-3">
-                <div className="aspect-[9/19] bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-                  <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1766475553400-f4b1e95d8429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwc2FmZXR5JTIwZXF1aXBtZW50JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzQ1MzMyMjN8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Interface mobile Nomade"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-sm text-gray-600 leading-relaxed text-center">
-                  Interface mobile Nomade
-                </p>
-              </div>
-              <p className="text-sm text-gray-500 text-center mt-3">Application Nomade</p>
-            </div>
-
+          
             {/* Mobile Screenshot 2 */}
             <div className="max-w-[280px] mx-auto">
               <div className="space-y-3">
-                <div className="aspect-[9/19] bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                <div className="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden shadow-lg">
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1766475553400-f4b1e95d8429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwc2FmZXR5JTIwZXF1aXBtZW50JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzQ1MzMyMjN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                    src="/case-studies/NOMAD-Ecran.png"
                     alt="Interface mobile Vigirail"
                     className="w-full h-full object-cover"
                   />
@@ -300,7 +284,22 @@ export function SNCFReseauNomadeVigirail() {
                   Interface mobile Vigirail
                 </p>
               </div>
-              <p className="text-sm text-gray-500 text-center mt-3">Application Vigirail</p>
+            </div>
+          
+           {/* Mobile Screenshot 1 */}
+            <div className="max-w-[400px] mx-auto">
+              <div className="space-y-3">
+                <div className="aspect-[16/9] bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                  <ImageWithFallback
+                    src="/case-studies/NOMAD-charte.png"
+                    alt="Interface mobile Nomade"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed text-center">
+                  Charte ergo des 12 apps mobile et des leurs back-office
+                </p>
+              </div>
             </div>
 
             {/* Guidelines */}
@@ -319,15 +318,15 @@ export function SNCFReseauNomadeVigirail() {
             </div>
 
             {/* Field Photo */}
-            <div className="space-y-3">
+            <div  className="max-w-[400px] mx-auto">
               <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1766475553400-f4b1e95d8429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyYWlsd2F5JTIwc2FmZXR5JTIwZXF1aXBtZW50JTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzQ1MzMyMjN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  src="/case-studies/NOMAD-observation.png"
                   alt="Observation terrain"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed text-center">
                 Observation terrain
               </p>
             </div>
@@ -341,19 +340,19 @@ export function SNCFReseauNomadeVigirail() {
       <section id="schema-resume" className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
         <div className="bg-gray-50 rounded-sm p-8 md:p-12">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl text-gray-900 mb-4">Schéma de synthèse</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Résumé visuel de l'approche méthodologique et des résultats clés de cette étude de cas
-            </p>
+             <h2 className="text-2xl md:text-3xl text-gray-900 mb-4">Résumé visuel de l'approche méthodologique et des résultats clés :</h2>
+             <p className="text-base text-gray-600 mt-4">Cliquez sur l'image pour l'ouvrir dans un nouvel onglet.</p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="bg-white rounded-sm p-8 shadow-sm">
-              <ImageWithFallback
-                src="/case-studies/schema-resume-sncf-nomade.png"
-                alt="Schéma de synthèse - SNCF Réseau Nomade Vigirail"
-                className="w-full h-auto rounded-sm"
-              />
+              <a href="/case-studies/NOMAD 2.png" target="_blank" rel="noopener noreferrer">
+                <ImageWithFallback
+                  src="/case-studies/NOMAD 2.png"
+                  alt="Schéma de synthèse - SNCF Réseau Nomade Vigirail"
+                  className="w-full h-auto rounded-sm"
+                />
+              </a>
             </div>
           </div>
         </div>

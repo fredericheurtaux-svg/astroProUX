@@ -274,12 +274,12 @@ export function DrealComfluence() {
             <div className="space-y-3">
               <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b3Jrc2hvcCUyMHRlYW0lMjBjb2xsYWJvcmF0aW9ufGVufDF8fHx8MTc3NDUzMzIyNHww&ixlib=rb-4.1.0&q=80&w=1080"
+                  src="/case-studies/DREAL-Atelier.jpg"
                   alt="Atelier collaboratif"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed text-center">
                 Atelier collaboratif
               </p>
             </div>
@@ -301,37 +301,37 @@ export function DrealComfluence() {
             <div className="space-y-3">
               <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXBlciUyMHByb3RvdHlwZSUyMHNrZXRjaHxlbnwxfHx8fDE3NzQ1MzMyMjR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  src="/case-studies/DREAL-proto.png"
                   alt="Prototypage papier"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Prototypage papier
+              <p className="text-sm text-gray-600 leading-relaxed text-center">
+                Prototypage papier (Architecture de l'information)
               </p>
             </div>
 
             {/* Desktop Interface */}
-            <div className="space-y-3">
-              <div className="aspect-[16/10] bg-gray-100 rounded-sm overflow-hidden border border-gray-200">
+            <div className="max-w-[400px] mx-auto">
+              <div className="aspect-[4/3] bg-gray-100 rounded-sm overflow-hidden border border-gray-200">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1656740978179-91ed1b1e745b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbnZpcm9ubWVudGFsJTIwd2F0ZXIlMjByaXZlciUyMGxhbmRzY2FwZXxlbnwxfHx8fDE3NzQ1MzMyMjR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  src="/case-studies/DREAL-mockup.png"
                   alt="Interface desktop Comfluence"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed text-center">
                 Interface desktop Comfluence
               </p>
             </div>
 
             {/* Mobile Interface */}
-            <div className="max-w-[280px] mx-auto">
+            <div className="max-w-[400px] mx-auto">
               <div className="space-y-3">
-                <div className="aspect-[9/16] bg-gray-100 rounded-lg overflow-hidden shadow-md border border-gray-200">
+                <div className="aspect-[19/9] bg-gray-100 rounded-lg overflow-hidden shadow-md border border-gray-200">
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1656740978179-91ed1b1e745b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbnZpcm9ubWVudGFsJTIwd2F0ZXIlMjByaXZlciUyMGxhbmRzY2FwZXxlbnwxfHx8fDE3NzQ1MzMyMjR8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Interface mobile Comfluence"
+                    src="/case-studies/DREAL-mobile.png"
+                    alt="Wireframe mobile Comfluence"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -351,19 +351,19 @@ export function DrealComfluence() {
       <section id="schema-resume" className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
         <div className="bg-gray-50 rounded-sm p-8 md:p-12">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl text-gray-900 mb-4">Schéma de synthèse</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Résumé visuel de l'approche méthodologique et des résultats clés de cette étude de cas
-            </p>
+            <h2 className="text-2xl md:text-3xl text-gray-900 mb-4">Résumé visuel de l'approche méthodologique et des résultats clés :</h2>
+            <p className="text-base text-gray-600 mt-4">Cliquez sur l'image pour l'ouvrir dans un nouvel onglet.</p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="bg-white rounded-sm p-8 shadow-sm">
-              <ImageWithFallback
-                src="/case-studies/schema-resume-dreal.png"
-                alt="Schéma de synthèse - DREAL Comfluence"
-                className="w-full h-auto rounded-sm"
-              />
+              <a href="/case-studies/DREAL-1.svg" target="_blank" rel="noopener noreferrer">
+                <ImageWithFallback
+                  src="/case-studies/DREAL-1.svg"
+                  alt="Schéma de synthèse - DREAL Comfluence"
+                  className="w-full h-auto rounded-sm"
+                />
+              </a>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Search, Target, Users, Layout, BarChart3, GraduationCap, Lightbulb, Compass, Pencil, Presentation, BookOpen } from "lucide-react";
+import { Search, Target, Users, Layout, BarChart3, GraduationCap } from "lucide-react";
 
 export function Methods() {
   const methods = [
@@ -32,34 +32,6 @@ export function Methods() {
       icon: GraduationCap,
       title: "Transmission et montée en compétence",
       description: "Formation, accompagnement, pédagogie et partage de méthodes pour aider les équipes, les étudiants ou les parties prenantes à mieux comprendre et pratiquer l'UX."
-    }
-  ];
-
-  const services = [
-    {
-      icon: Compass,
-      title: "Cadrage UX",
-      description: "J'aide à clarifier un sujet, structurer les besoins, faire émerger les enjeux d'usage et poser une base de travail commune entre métier, produit et technique."
-    },
-    {
-      icon: Search,
-      title: "Audit UX",
-      description: "J'analyse un produit, un parcours ou une interface pour identifier les points de friction, qualifier les principaux irritants et proposer des pistes d'amélioration priorisées."
-    },
-    {
-      icon: Pencil,
-      title: "Conception UX",
-      description: "Je conçois des parcours, des structures d'écrans, des wireframes et des prototypes pour rendre une solution utile, cohérente et réaliste."
-    },
-    {
-      icon: BookOpen,
-      title: "Formation",
-      description: "J'interviens pour transmettre des méthodes, rendre l'UX plus accessible et aider des publics variés à progresser sur des sujets comme la recherche utilisateur, l'analyse heuristique ou la conception."
-    },
-    {
-      icon: Lightbulb,
-      title: "Design Thinking",
-      description: "J'anime des temps de travail collectifs pour explorer un problème, faire émerger des idées, structurer une vision ou construire des pistes de solution de manière collaborative."
     }
   ];
 
@@ -137,38 +109,6 @@ export function Methods() {
             à faire dialoguer les parties prenantes et à rendre les décisions plus claires : entretiens, 
             ateliers, Figma, audits, prototypage, tests et synthèses visuelles.
           </p>
-        </div>
-      </section>
-
-      {/* Offres de service */}
-      <section className="bg-gray-50 py-24 md:py-32">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4 text-gray-900 tracking-tight">
-              Offres de service
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <div key={index} className="bg-white p-8 rounded-sm">
-                  <div className="mb-6">
-                    <div className="w-12 h-12 bg-gray-900 rounded-sm flex items-center justify-center mb-6">
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-xl md:text-2xl text-gray-900 mb-4">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <p className="text-base text-gray-600 leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
 

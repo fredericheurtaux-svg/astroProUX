@@ -82,6 +82,9 @@ export function Home() {
               Spécialisée dans les contextes complexes : applications métier, outils internes, 
               back-office, transformation digitale.
             </p>
+            <p>
+             J'accompane actuellement la startup <a href="https://freshdata.fr" target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-gray-700 underline">FreshData</a>. Je suis disponible 3j/sem pour vous accompager.
+            </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-12">
