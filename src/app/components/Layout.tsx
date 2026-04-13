@@ -124,16 +124,10 @@ export function Layout() {
               <h3 className="text-sm mb-4 text-gray-900">Frédéric Heurtaux</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 UX Designer & UX Researcher senior<br />
-                Freelance basé à Paris
+                Freelance basé à Lille et disponible pour des missions partout en France et à distance.<br />
               </p>
             </div>
-            <div>
-              <h3 className="text-sm mb-4 text-gray-900">Contact</h3>
-              <div className="space-y-3 text-sm text-gray-600">
-                <p>contact@fredericheurtaux.fr</p>
-                <p>+33 6 12 34 56 78</p>
-              </div>
-            </div>
+            
           </div>
           <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
             <p className="text-sm text-gray-500">
