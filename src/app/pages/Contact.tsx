@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Mail, Phone, Linkedin, Send, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router";
 
@@ -8,21 +8,46 @@ export function Contact() {
     email: "",
     phone: "",
     company: "",
-    message: "",
+    message: ""
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+// Ajoute ici la valeur du rendezvous 
+  const rendezvous = "PAS DE RDV CONTACT";
+  const projectType = "INDEFINI";
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In a real app, this would send the data to a backend
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", company: "", message: "" });
-    }, 3000);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, rendezvous, projectType }),
+      });
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        const message = body?.error || body?.message || 'Erreur lors de l\'envoi du message. Veuillez réessayer.';
+        const details = body?.details || body?.error || response.statusText;
+        alert(`${message}${details ? `\nDétail : ${details}` : ''}`);
+        return;
+      }
+
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+      }, 6000);
+    } catch (error) {
+      console.error('Erreur:', error);
+      alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -53,6 +78,7 @@ export function Contact() {
                 <h2 className="text-xl mb-6 text-gray-900">
                   Coordonnées
                 </h2>
+                
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-gray-100 rounded flex items-center justify-center flex-shrink-0">
@@ -66,18 +92,8 @@ export function Contact() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-gray-100 rounded flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-5 h-5 text-gray-700" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-500 mb-1">Téléphone</p>
-                      <a href="tel:+33612345678" className="text-gray-900 hover:underline">
-                        +33 6 12 34 56 78
-                      </a>
-                    </div>
-                  </div>
-
+                
+               
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-gray-100 rounded flex items-center justify-center flex-shrink-0">
                       <Linkedin className="w-5 h-5 text-gray-700" />
@@ -115,7 +131,7 @@ export function Contact() {
                 <h3 className="text-lg mb-4 text-gray-900">Localisation</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Paris et Île-de-France<br />
-                  Interventions à distance possibles<br />
+                  Interventions à distance possibles<br/>
                   Déplacements en région selon projets
                 </p>
               </div>
@@ -139,7 +155,7 @@ export function Contact() {
                   </div>
                   <h3 className="text-xl mb-2 text-gray-900">Message envoyé</h3>
                   <p className="text-gray-600">
-                    Merci pour votre message. Je vous répondrai dans les 24h.
+                    Merci pour votre message. Je réponds généralement en moins de 24h.
                   </p>
                 </div>
               ) : (

@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-04-10T14:20:00Z",
+  "timezone": "Europe/Paris",
+  "slotDurationMinutes": 30,
+  "days": {
+    "2026-04-15": {
+      "slots": {
+        "09:00": "free",
+        "09:30": "busy",
+        "10:00": "free",
+        "10:30": "busy",
+        "11:00": "free",
+        "11:30": "free"
+      }
+    },
+    "2026-04-16": {
+      "slots": {
+        "14:00": "busy",
+        "14:30": "free",
+        "15:00": "free"
+      }
+    }
+  }
+}

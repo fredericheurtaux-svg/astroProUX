@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar, Clock, CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
+
+
 
 export function Appointment() {
   const [step, setStep] = useState(1);
@@ -13,23 +15,80 @@ export function Appointment() {
     timeSlot: "",
     message: "",
   });
+  const [availability, setAvailability] = useState(null);
+
+  useEffect(() => {
+    fetch("/data/availability.json")
+      .then((res) => res.json())
+      .then((data) => setAvailability(data))
+      .catch(() => setAvailability(null));
+  }, []);
 
   const projectTypes = [
     "Recherche utilisateur",
     "Cadrage de projet",
     "Conception d'interface",
     "Audit UX",
-    "Accompagnement long terme",
     "Autre / À définir"
   ];
 
-  const timeSlots = [
-    { day: "Lundi 31 mars", slots: ["10h - 11h", "14h - 15h", "16h - 17h"] },
-    { day: "Mardi 1er avril", slots: ["9h - 10h", "11h - 12h", "15h - 16h"] },
-    { day: "Mercredi 2 avril", slots: ["10h - 11h", "14h - 15h"] },
-    { day: "Jeudi 3 avril", slots: ["9h - 10h", "14h - 15h", "16h - 17h"] },
-    { day: "Vendredi 4 avril", slots: ["10h - 11h", "11h - 12h"] },
-  ];
+
+
+  const getFrenchDayLabel = (date: Date) => {
+    const weekdays = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+    const months = [
+      "janvier",
+      "février",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "août",
+      "septembre",
+      "octobre",
+      "novembre",
+      "décembre",
+    ];
+    const day = date.getDate();
+    const dayLabel = day === 1 ? "1er" : String(day);
+    return `${weekdays[date.getDay()]} ${dayLabel} ${months[date.getMonth()]}`;
+  };
+
+  const getNextWeekdays = (count: number) => {
+    const dates: Date[] = [];
+    const date = new Date();
+    while (dates.length < count) {
+      const day = date.getDay();
+      if (day !== 0 && day !== 6) {
+        dates.push(new Date(date));
+      }
+      date.setDate(date.getDate() + 1);
+    }
+    return dates;
+  };
+
+  const timeSlots = getNextWeekdays(15).map((date) => ({
+    day: getFrenchDayLabel(date),
+    slots: [
+      "9h",
+      "9h30",
+      "10h0",
+      "10h30",
+      "11h",
+      "11h30",
+      "13h30",
+      "14h",
+      "14h30",
+      "15h",
+      "15h30",
+      "16h",
+      "16h30",
+      "17h",
+      "17h30",
+      "18h"
+    ],
+  }));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -38,19 +97,106 @@ export function Appointment() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send the data to a backend
-    setStep(3);
+    // Envoi des données du rendez-vous par email via le backend
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          message: `${formData.message || ""}\n\nCréneau choisi : ${formData.timeSlot}`,
+        }),
+      });
+      let errorMsg = '';
+      if (!res.ok) {
+        try {
+          const data = await res.json();
+          errorMsg = data.error || res.status;
+        } catch {
+          errorMsg = "" + res.status;
+        }
+        alert("Erreur lors de l'envoi du message : " + errorMsg);
+        return;
+      }
+      setStep(3);
+    } catch (err) {
+      alert("Erreur lors de l'envoi du message : " + err);
+    }
   };
 
   const canProceedToStep2 = formData.name && formData.email && formData.projectType;
 
+  // Onglets semaines
+ type TabKey = "this" | "next" | "after";
+ const weekTabs: { key: TabKey; label: string }[] = [
+  { key: "this", label: "Cette semaine" },
+  { key: "next", label: "Semaine prochaine" },
+  { key: "after", label: "Dans 2 semaines" },
+ ];
+
+ const [activeTab, setActiveTab] = useState<TabKey>("this");
+
+  const getMonday = (date: Date) => {
+    const d = new Date(date);
+    const day = d.getDay();
+    const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+    d.setDate(diff);
+    d.setHours(0,0,0,0);
+    return d;
+  };
+
+  const today = new Date();
+  const mondayThisWeek = getMonday(today);
+  const mondayNextWeek = new Date(mondayThisWeek); mondayNextWeek.setDate(mondayThisWeek.getDate() + 7);
+  const mondayAfterNext = new Date(mondayThisWeek); mondayAfterNext.setDate(mondayThisWeek.getDate() + 14);
+
+  const getWeekdays = (start: Date) => {
+    const days = [];
+    for (let i = 0; i < 5; i++) {
+      const d = new Date(start);
+      d.setDate(start.getDate() + i);
+      days.push(d);
+    }
+    return days;
+  };
+
+  const slots = [
+    "9h",
+    "9h30",
+    "10h",
+    "10h30",
+    "11h",
+    "11h30",
+    "13h30",
+    "14h",
+    "14h30",
+    "15h",
+    "15h30",
+    "16h",
+    "16h30",
+    "17h",
+    "17h30",
+    "18h"
+  ];
+
+  const weekDays = {
+    this: getWeekdays(mondayThisWeek).filter(d => d >= new Date(today.getFullYear(), today.getMonth(), today.getDate())),
+    next: getWeekdays(mondayNextWeek),
+    after: getWeekdays(mondayAfterNext)
+  };
+
+  const isWeekend = today.getDay() === 0 || today.getDay() === 6;
+  
+  if (isWeekend && activeTab === 'this') setActiveTab('next');
+
   return (
     <div className="bg-white">
       {/* Header */}
-      <section className="max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-16 md:pt-24 md:pb-20">
-        <div className="max-w-3xl">
+      <section className="max-w-7xl mx-auto px-4 lg:px-12 pt-20 pb-16 md:pt-24 md:pb-20">
+        <div className="max-w-4xl">
           <h1 className="text-4xl md:text-5xl mb-6 text-gray-900">
             Prendre rendez-vous
           </h1>
@@ -62,7 +208,7 @@ export function Appointment() {
       </section>
 
       {/* Progress Steps */}
-      <section className="max-w-6xl mx-auto px-6 lg:px-8 pb-12">
+      <section className="max-w-7xl mx-auto px-4 lg:px-12 pb-12">
         <div className="flex items-center justify-center gap-2 md:gap-4">
           <div className="flex items-center gap-2">
             <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm ${
@@ -94,7 +240,7 @@ export function Appointment() {
       </section>
 
       {/* Form Steps */}
-      <section className="max-w-4xl mx-auto px-6 lg:px-8 pb-20">
+      <section className="max-w-5xl mx-auto px-4 lg:px-12 pb-20">
         {step === 1 && (
           <div className="bg-gray-50 p-8 md:p-10 rounded border border-gray-200">
             <h2 className="text-2xl mb-6 text-gray-900">
@@ -238,36 +384,75 @@ export function Appointment() {
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-4">
-                {timeSlots.map((day, dayIndex) => (
-                  <div key={dayIndex}>
-                    <h3 className="text-sm mb-3 text-gray-700">{day.day}</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                      {day.slots.map((slot, slotIndex) => {
-                        const slotValue = `${day.day} - ${slot}`;
-                        return (
-                          <label
-                            key={slotIndex}
-                            className={`p-3 border rounded cursor-pointer transition-all text-center text-sm ${
-                              formData.timeSlot === slotValue
-                                ? 'border-gray-900 bg-gray-900 text-white'
-                                : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
-                            }`}
-                          >
-                            <input
-                              type="radio"
-                              name="timeSlot"
-                              value={slotValue}
-                              checked={formData.timeSlot === slotValue}
-                              onChange={handleChange}
-                              className="sr-only"
-                            />
-                            {slot}
-                          </label>
-                        );
-                      })}
+                {/* Onglets de semaine */}
+                <div className="flex gap-2 mb-8">
+                  {weekTabs.map((tab) => (
+                    <button
+                      type="button"
+                      className={`px-4 py-2 rounded-t border-b-2 transition-colors ${activeTab === tab.key ? 'border-gray-900 text-gray-900 bg-white' : 'border-transparent text-gray-500 bg-gray-100 hover:text-gray-900'}`}
+                      onClick={() => setActiveTab(tab.key)}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Créneaux de la semaine sélectionnée */}
+                {weekDays[activeTab].map((date, dayIndex) => {
+                  const dayLabel = getFrenchDayLabel(date);
+                  return (
+                    <div key={dayLabel}>
+                      <h3 className="text-sm mb-3 text-gray-700">{dayLabel}</h3>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-8 gap-3">
+                        {slots.map((slot, slotIndex) => {
+                          const slotValue = `${dayLabel} - ${slot}`;
+                          // Correction : extraire l'heure de début et la normaliser
+                          let disabled = false;
+                          if (availability) {
+                            // Correction : format local Europe/Paris (YYYY-MM-DD)
+                            const tzDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+                            const dateIso = tzDate.toISOString().slice(0, 10);
+                            // Extrait l'heure de début (ex : "9h - 9h30" => "09:00")
+                            const match = slot.match(/(\d{1,2})h(\d{0,2})/);
+                            let hour = '00', min = '00';
+                            if (match) {
+                              hour = match[1].padStart(2, '0');
+                              min = match[2] ? match[2].padEnd(2, '0') : '00';
+                            }
+                            const slotKey = `${hour}:${min}`;
+                            if (availability.days?.[dateIso]?.slots?.[slotKey] === 'busy') {
+                              console.log(`Créneau occupé (busy) pour la date ${dateIso} à ${slotKey}`);
+                              disabled = true;
+                            }
+                          }
+                          return (
+                            <label
+                              key={slotIndex}
+                              className={`p-3 border rounded cursor-pointer transition-all text-center text-sm ${
+                                formData.timeSlot === slotValue
+                                  ? 'border-gray-900 bg-gray-900 text-white'
+                                  : disabled
+                                    ? 'border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed opacity-60'
+                                    : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                              }`}
+                            >
+                              <input
+                                type="radio"
+                                name="timeSlot"
+                                value={slotValue}
+                                checked={formData.timeSlot === slotValue}
+                                onChange={handleChange}
+                                className="sr-only"
+                                disabled={disabled}
+                              />
+                              {slot}
+                            </label>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               <button
@@ -296,7 +481,7 @@ export function Appointment() {
                 Rendez-vous confirmé
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Merci {formData.name} ! Un email de confirmation avec le lien de visioconférence vous a été envoyé à <strong className="text-gray-900">{formData.email}</strong>.
+                Merci {formData.name} ! Un email de confirmation avec le lien de visioconférence sera envoyé à <strong className="text-gray-900">{formData.email}</strong>.
               </p>
 
               <div className="bg-white p-6 rounded border border-gray-200 mb-8 max-w-md mx-auto">
@@ -339,7 +524,7 @@ export function Appointment() {
       {/* Info Section */}
       {step < 3 && (
         <section className="bg-gray-100 py-16">
-          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 lg:px-12">
             <h3 className="text-xl mb-6 text-gray-900 text-center">
               À quoi s'attendre lors de cet entretien ?
             </h3>
