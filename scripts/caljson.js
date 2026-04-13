@@ -19,10 +19,7 @@ const workingHours = {
 };
 
 // Paramètres du POST
-const postUrl = "http://localhost:3001/api/admin/availability";
-// Si ton serveur écoute sur 3001, mets :
-// const postUrl = "http://localhost:3001/api/admin/availability";
-
+const postUrl = "https://frederic.heurtaux.me/api/admin/availability";
 const syncToken = "eigFz9x3qYr5jrByLbLfqpFfFd99ngxFMDMHPLct";
 
 // -------- Helpers dates --------
@@ -119,7 +116,6 @@ for (let i = 0; i < numberOfDays; i++) {
 
     let status = "free";
 
-    // créneau déjà passé
     if (slotEnd <= now) {
       status = "busy";
     } else {
@@ -133,7 +129,6 @@ for (let i = 0; i < numberOfDays; i++) {
           const evDayEnd = cloneDate(ev.end);
           evDayEnd.setHours(0, 0, 0, 0);
 
-          // Apple Calendar : allDay finit souvent le lendemain à 00:00
           if (day >= evDayStart && day < evDayEnd) {
             status = "busy";
             break;
@@ -152,25 +147,29 @@ for (let i = 0; i < numberOfDays; i++) {
 // -------- POST vers le serveur Node.js --------
 
 const json = JSON.stringify(result, null, 2);
-
-const curlCommand = [
-  "curl",
-  "-s",
-  "-X", "POST",
-  postUrl,
-  "-H", "Content-Type: application/json",
-  "-H", "x-sync-token: " + syncToken,
-  "--data-binary", "@-"
-];
+const tmpFile = "/tmp/availability.json";
 
 try {
-  const cmd = `printf %s ${shellQuoteSingle(json)} | ${curlCommand.map(shellQuoteSingle).join(" ")}`;
+  const nsString = $.NSString.alloc.initWithUTF8String(json);
+  nsString.writeToFileAtomicallyEncodingError(
+    $(tmpFile),
+    true,
+    $.NSUTF8StringEncoding,
+    null
+  );
+
+  const cmd = `/usr/bin/curl -i -X POST https://frederic.heurtaux.me/api/admin/availability \
+-H "Content-Type: application/json" \
+-H "x-sync-token: ${syncToken}" \
+--data-binary @${tmpFile}`;
+
   const response = app.doShellScript(cmd);
   response;
 } catch (e) {
   JSON.stringify({
     ok: false,
     error: String(e),
+    tmpFile: tmpFile,
     payloadPreview: result.generatedAt
   }, null, 2);
 }

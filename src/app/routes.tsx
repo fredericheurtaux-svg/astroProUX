@@ -11,6 +11,7 @@ import { SNCFReseauRefonte } from "./pages/case-studies/SNCFReseauRefonte";
 import { AuchanOutilsMagasin } from "./pages/case-studies/AuchanOutilsMagasin";
 import { SNCFReseauNomadeVigirail } from "./pages/case-studies/SNCFReseauNomadeVigirail";
 import { DrealComfluence } from "./pages/case-studies/DrealComfluence";
+import MentionsLegales from "./pages/MentionsLegales";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
       { path: "case-studies/auchan-outils-magasin", Component: AuchanOutilsMagasin },
       { path: "case-studies/sncf-reseau-nomade-vigirail", Component: SNCFReseauNomadeVigirail },
       { path: "case-studies/dreal-comfluence", Component: DrealComfluence },
+      { path: "mentions-legales", Component: MentionsLegales },
     ],
   },
 ]);

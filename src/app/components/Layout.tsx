@@ -135,10 +135,13 @@ export function Layout() {
               </div>
             </div>
           </div>
-          <div className="pt-8 border-t border-gray-200">
+          <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
             <p className="text-sm text-gray-500">
               © 2026 Frédéric Heurtaux. Tous droits réservés.
             </p>
+            <a href="/mentions-legales" className="text-sm text-gray-500 hover:underline">
+              Mentions légales
+            </a>
           </div>
         </div>
       </footer>
