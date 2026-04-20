@@ -47,7 +47,7 @@ export function About() {
       <section className="max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-16 md:pt-24 md:pb-20">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl mb-6 text-gray-900">
-            À propos
+            UX research pour applications métier
           </h1>
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
             UX Designer senior et freelance depuis 2015, j'accompagne les entreprises dans la conception de produits numériques utiles et utilisables.

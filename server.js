@@ -124,8 +124,8 @@ ${message}${rendezVousText}${projectTypeText}
 app.post("/api/admin/availability", async (req, res) => {
   try {
     const token = req.headers["x-sync-token"];
-    // console.log("Received    token:", token);
-    // console.log("Environment token:", process.env.AVAILABILITY_SYNC_TOKEN);
+    console.log("Received    token:", token);
+    console.log("Environment token:", process.env.AVAILABILITY_SYNC_TOKEN);
     
     
     if (!token || token !== process.env.AVAILABILITY_SYNC_TOKEN) {
@@ -162,5 +162,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(port, "0.0.0.0", () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server for heurtaux running on http://localhost:${port}`);
 });

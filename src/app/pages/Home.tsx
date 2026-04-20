@@ -74,9 +74,11 @@ export function Home() {
       <section className="max-w-5xl mx-auto px-6 lg:px-8 pt-24 pb-32 md:pt-32 md:pb-40">
         <div className="max-w-4xl">
           <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl">
-            <p>
-              J'aide les entreprises à concevoir des produits numériques utiles et utilisables, 
-              en articulant besoins utilisateurs, enjeux métier et contraintes de faisabilité.
+            <h1 className="text-4xl md:text-5xl mb-6 text-gray-900">
+               UX designer freelance, 
+            </h1> 
+            <p>je collabore avec les entreprises pour concevoir des produits numériques utiles et intuitifs, 
+               en articulant besoins utilisateurs, enjeux métier et contraintes de faisabilité.
             </p>
             <p>
               Spécialisée dans les contextes complexes : applications métier, outils internes, 

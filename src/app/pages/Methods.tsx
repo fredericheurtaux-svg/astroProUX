@@ -40,8 +40,8 @@ export function Methods() {
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 lg:px-8 pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl mb-8 text-gray-900 tracking-tight leading-[1.05]">
-            Méthodes & accompagnements
+          <h1 className="text-4xl md:text-5xl mb-6 text-gray-900">
+            Mes méthodes pour concevoir des applications complexes
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
             J'adapte mes méthodes au contexte, au niveau de maturité UX et au temps disponible. 

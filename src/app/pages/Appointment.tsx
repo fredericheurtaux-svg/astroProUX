@@ -2,7 +2,15 @@ import { useState, useEffect } from "react";
 import { Calendar, Clock, CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 
-
+interface AvailabilityData {
+  days: {
+    [dateIso: string]: {
+      slots: {
+        [slotKey: string]: 'busy' | 'available';
+      };
+    };
+  };
+}
 
 export function Appointment() {
   const [step, setStep] = useState(1);
@@ -15,7 +23,7 @@ export function Appointment() {
     timeSlot: "",
     message: "",
   });
-  const [availability, setAvailability] = useState(null);
+  const [availability, setAvailability] = useState<AvailabilityData | null>(null);
 
   useEffect(() => {
     fetch("/data/availability.json")

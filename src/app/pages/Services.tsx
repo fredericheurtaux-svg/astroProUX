@@ -59,6 +59,18 @@ export function Services() {
       description: "J'interviens pour transmettre des méthodes, rendre l'UX plus accessible et aider des publics variés à progresser sur des sujets comme la recherche utilisateur, l'analyse heuristique ou la conception.",
       details: [],
       output: "Livrables : supports de formation, ateliers pratiques"
+    },
+    {
+      icon: Lightbulb,
+      title: "Éconception",
+      description: "Concevoir des solutions numériques responsables en minimisant l'impact environnemental",
+      details: [
+        "Audit d'écoconception (critères GreenIT)",
+        "Recommandations pour réduire l'impact environnemental : plus simple = moins d'énergie et device moins obsolète.",
+        "Optimisation des performances et de l'accessibilité",
+        "Formation aux principes de l'écoconception"
+      ],
+      output: "Livrables : rapport d'audit, plan d'optimisation, recommandations écoresponsables"
     }
   ];
 
@@ -76,7 +88,7 @@ export function Services() {
       <section className="max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-16 md:pt-24 md:pb-20">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl mb-6 text-gray-900">
-            Services
+            Mes services d'UX research et Design
           </h1>
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
             J'interviens sur toutes les phases de conception, de la recherche utilisateur à la livraison de spécifications détaillées. 
@@ -160,32 +172,52 @@ export function Services() {
           <h2 className="text-2xl md:text-3xl mb-12 text-gray-900">
             Formats d'intervention
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded border border-gray-200">
-              <h3 className="text-xl mb-3 text-gray-900">Mission ponctuelle</h3>
+              <h3 className="text-xl mb-3 text-gray-900">Engagement au forfait</h3>
               <p className="text-gray-600 mb-4">
-                Audit, recherche, cadrage ou phase de conception sur un périmètre défini.
+                Périmètre, livrables et coûts définis à l'avance. Idéal pour des missions bien cadrées (audit, cadrage, conception).
               </p>
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-start gap-3 text-sm text-gray-700">
+                  <span className="w-1.5 h-1.5 bg-gray-900 rounded-full mt-1.5 flex-shrink-0" />
+                  <span>Devis fixe et prévisible</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm text-gray-700">
+                  <span className="w-1.5 h-1.5 bg-gray-900 rounded-full mt-1.5 flex-shrink-0" />
+                  <span>Livrables et délais convenus</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm text-gray-700">
+                  <span className="w-1.5 h-1.5 bg-gray-900 rounded-full mt-1.5 flex-shrink-0" />
+                  <span>Avancement régulier suivi</span>
+                </li>
+              </ul>
               <p className="text-sm text-gray-500">
-                Durée : 3 à 4 semaines
+                Durée : de quelques semaines à plusieurs mois selon le périmètre 
               </p>
             </div>
+
             <div className="bg-white p-8 rounded border border-gray-200">
-              <h3 className="text-xl mb-3 text-gray-900">Accompagnement projet</h3>
+              <h3 className="text-xl mb-3 text-gray-900">Temps passé en ATG <span className="text-sm text-gray-500">(Assistance Technique Globale)</span></h3>
               <p className="text-gray-600 mb-4">
-                Intervention régulière sur toute la durée du projet, en lien avec vos équipes.
+                Présence régulière et flexible pour accompagner votre produit au long terme.
               </p>
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-start gap-3 text-sm text-gray-700">
+                  <span className="w-1.5 h-1.5 bg-gray-900 rounded-full mt-1.5 flex-shrink-0" />
+                  <span>Facturation au temps passé</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm text-gray-700">
+                  <span className="w-1.5 h-1.5 bg-gray-900 rounded-full mt-1.5 flex-shrink-0" />
+                  <span>Flexibilité selon les besoins</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm text-gray-700">
+                  <span className="w-1.5 h-1.5 bg-gray-900 rounded-full mt-1.5 flex-shrink-0" />
+                  <span>Intégration progressive aux équipes</span>
+                </li>
+              </ul>
               <p className="text-sm text-gray-500">
-                Durée : 2 à 36 mois
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded border border-gray-200">
-              <h3 className="text-xl mb-3 text-gray-900">Régie / temps partiel</h3>
-              <p className="text-gray-600 mb-4">
-                Présence récurrente (1 à 3 jours / semaine) pour renforcer votre équipe produit.
-              </p>
-              <p className="text-sm text-gray-500">
-                Durée : selon besoins
+                Durée : selon vos besoins (quelques jours à plusieurs mois)
               </p>
             </div>
           </div>
