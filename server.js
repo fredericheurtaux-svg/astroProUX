@@ -4,7 +4,6 @@ import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import fs from "node:fs/promises";
-import compression from "compression";
 
 dotenv.config();
 
@@ -22,18 +21,6 @@ const availabilityTmpPath = path.join(dataDir, "availability.tmp.json");
 
 
 app.use(express.json({ limit: "2mb" }));
-
-// Enable compression (Gzip + Brotli)
-app.use(compression({
-  level: 9, // Maximum compression
-  threshold: 1024, // Compress responses bigger than 1KB
-  filter: (req, res) => {
-    if (req.headers['x-no-compression']) {
-      return false;
-    }
-    return compression.filter(req, res);
-  },
-}));
 
 app.get("/data/availability.json", (req, res) => {
   res.set("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
