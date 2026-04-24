@@ -19,7 +19,7 @@ export function DrealComfluence() {
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-20 md:pb-28">
         <div className="max-w-4xl mb-12">
-          <p className="text-sm text-gray-500 mb-4 italic">Faire de l'UX dans un cadre très contraint</p>
+          <p className="text-2xl text-blue-600 mb-6 italic font-medium">Faire de l'UX dans la contrainte : budget dev serré et 3 jours d'atelier utilisateur</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 text-gray-900 tracking-tight leading-[1.05]">
             DREAL Grand Est — Comfluence
           </h1>
@@ -47,7 +47,7 @@ export function DrealComfluence() {
       </section>
 
       {/* Schema Invite */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-6">
         <div className="bg-blue-50 border border-blue-200 rounded-sm p-6 md:p-8">
           <div className="flex items-start gap-4">
             <div className="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center flex-shrink-0">
@@ -350,18 +350,18 @@ export function DrealComfluence() {
       {/* Schema Resume */}
       <section id="schema-resume" className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
         <div className="bg-gray-50 rounded-sm p-8 md:p-12">
-          <div className="text-center mb-8">
+          <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl text-gray-900 mb-4">Résumé visuel de l'approche méthodologique et des résultats clés :</h2>
-            <p className="text-base text-gray-600 mt-4">Cliquez sur l'image pour l'ouvrir dans un nouvel onglet.</p>
+            <p className="text-base text-gray-600">Cliquez sur l'image pour l'ouvrir dans un nouvel onglet.</p>
           </div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-sm p-8 shadow-sm">
-              <a href="/case-studies/DREAL-1.svg" target="_blank" rel="noopener noreferrer">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-sm p-8 shadow-sm min-h-96 flex items-center justify-center">
+              <a href="/case-studies/DREAL-1.svg" target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
                 <ImageWithFallback
                   src="/case-studies/DREAL-1.svg"
                   alt="Schéma de synthèse - DREAL Comfluence"
-                  className="w-full h-auto rounded-sm"
+                  className="w-full h-auto max-h-96 rounded-sm"
                 />
               </a>
             </div>

@@ -11,6 +11,7 @@ export function CaseStudies() {
       keyInfo: ["15 mois", "2 applications web", "15 interviews"],
       promise: "Repenser deux outils critiques de planification budgétaire sans alourdir le travail des experts terrain.",
       imageUrl: "/case-studies/Opipro-SR.jpg",
+      webpUrl: "/case-studies/Opipro-SR.webp",
       size: "large"
     },
     {
@@ -20,6 +21,7 @@ export function CaseStudies() {
       keyInfo: ["9 mois", "mobile + desktop", "5 itérations"],
       promise: "Intégrer l'UX dans une transformation technique pour produire vite des résultats utiles aux équipes magasin.",
       imageUrl: "/case-studies/Auchan-Mag.png",
+      webpUrl: "/case-studies/Auchan-Mag.webp",
       size: "standard"
     },
     {
@@ -29,6 +31,7 @@ export function CaseStudies() {
       keyInfo: ["12 mois", "13 apps dans le programme", "14 000 utilisateurs"],
       promise: "Concevoir des applications mobiles terrain en environnement exigeant, sous forte contrainte d'usage.",
       imageUrl: "/case-studies/NOMAD-liveTSP.png",
+      webpUrl: "/case-studies/NOMAD-liveTSP.webp",
       size: "standard"
     },
     {
@@ -38,6 +41,7 @@ export function CaseStudies() {
       keyInfo: ["4 mois 20 jours", "3 ateliers", "mobile + desktop"],
       promise: "Introduire une démarche centrée utilisateur dans un cadre institutionnel, avec peu de temps et peu de marge de manœuvre.",
       imageUrl: "/case-studies/DREAL-route.png",
+      webpUrl: "/case-studies/DREAL-route.webp",
       size: "large"
     }
   ];
@@ -73,6 +77,7 @@ export function CaseStudies() {
                   <div className={`${caseStudy.size === 'large' ? 'aspect-[16/10]' : 'aspect-[4/3]'} overflow-hidden bg-gray-100 rounded-sm`}>
                     <ImageWithFallback
                       src={caseStudy.imageUrl}
+                      webpSrc={caseStudy.webpUrl}
                       alt={caseStudy.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
@@ -82,11 +87,6 @@ export function CaseStudies() {
                 {/* Content */}
                 <div className={`${caseStudy.size === 'large' ? 'lg:col-span-5' : 'lg:col-span-6'} order-2 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'} ${caseStudy.size === 'large' ? 'lg:pt-8' : 'lg:pt-4'}`}>
                   
-                  {/* Subtitle */}
-                  <p className="text-sm text-gray-500 mb-4 italic tracking-wide">
-                    {caseStudy.subtitle}
-                  </p>
-
                   {/* Title */}
                   <h2 className="text-2xl md:text-3xl lg:text-4xl mb-6 text-gray-900 leading-tight tracking-tight">
                     {caseStudy.title}
@@ -105,6 +105,11 @@ export function CaseStudies() {
                   {/* Promise */}
                   <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
                     {caseStudy.promise}
+                  </p>
+
+                  {/* Slogan */}
+                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-4 font-semibold">
+                    {caseStudy.subtitle}
                   </p>
 
                   {/* CTA */}

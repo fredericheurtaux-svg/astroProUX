@@ -2,6 +2,7 @@ import { Outlet, Link, useLocation } from "react-router";
 import { Menu, X, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { ScrollToTop } from "./ScrollToTop";
+import { SkipLinks } from "./SkipLinks";
 
 export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,9 +25,10 @@ export function Layout() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SkipLinks />
       <ScrollToTop />
       {/* Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+      <header id="main-nav" className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
         <nav className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -112,7 +114,7 @@ export function Layout() {
       </header>
 
       {/* Main Content */}
-      <main className="pt-20">
+      <main id="main-content" className="pt-20">
         <Outlet />
       </main>
 

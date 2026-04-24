@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import fs from "node:fs/promises";
+import compression from "compression";
 
 dotenv.config();
 
@@ -22,6 +23,18 @@ const availabilityTmpPath = path.join(dataDir, "availability.tmp.json");
 
 app.use(express.json({ limit: "2mb" }));
 
+// Enable compression (Gzip + Brotli)
+app.use(compression({
+  level: 9, // Maximum compression
+  threshold: 1024, // Compress responses bigger than 1KB
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) {
+      return false;
+    }
+    return compression.filter(req, res);
+  },
+}));
+
 app.get("/data/availability.json", (req, res) => {
   res.set("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
   res.set("Pragma", "no-cache");
@@ -29,7 +42,46 @@ app.get("/data/availability.json", (req, res) => {
   res.sendFile(availabilityFilePath);
 });
 
+// Cache-Control headers middleware
+app.use((req, res, next) => {
+  // Assets with hash (immutable) - cache for 1 year
+  if (req.url.match(/\/assets\/.*\.[a-f0-9]{8}\.(js|css)$/)) {
+    res.set("Cache-Control", "public, max-age=31536000, immutable");
+  }
+  // Public assets (images, fonts, SVG, favicon, robots, etc) - cache for 30 days
+  else if (req.url.match(/\.(jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|eot|ico|json)(\?.*)?$/i) || req.url.match(/\/(favicon|robots|sitemap)/i)) {
+    res.set("Cache-Control", "public, max-age=2592000"); // 30 days
+  }
+  // Explicit HTML files and data API - never cache, always revalidate
+  else if (req.url.match(/\.html(\?.*)?$/i) || req.url === '/' || req.url.match(/^\/api\/|^\/data\//)) {
+    res.set("Cache-Control", "public, max-age=0, must-revalidate");
+    res.set("Pragma", "no-cache");
+    res.set("Expires", "0");
+  }
+  // All other routes (SPA routes like /case-studies, /contact, /about, etc) - serve index.html with no-cache
+  else {
+    res.set("Cache-Control", "public, max-age=0, must-revalidate");
+    res.set("Pragma", "no-cache");
+    res.set("Expires", "0");
+  }
+  next();
+});
+
 app.use(express.static(distPath));
+
+// SPA fallback - serve index.html for all unmapped routes (client-side routing)
+app.get('*', (req, res) => {
+  // Don't serve index.html for API routes that weren't matched above
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ error: 'Not found' });
+  }
+  
+  // Serve index.html for all other routes (SPA routing with no-cache headers)
+  res.set("Cache-Control", "public, max-age=0, must-revalidate");
+  res.set("Pragma", "no-cache");
+  res.set("Expires", "0");
+  res.sendFile(path.join(distPath, 'index.html'));
+});
 
 // Fichiers de données publics
 //app.use("/data", express.static(dataDir));

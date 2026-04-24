@@ -19,7 +19,7 @@ export function AuchanOutilsMagasin() {
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-8 md:pb-6">
         <div className="max-w-4xl mb-12">
-          <p className="text-sm text-gray-500 mb-4 italic">Moderniser sans perdre le terrain</p>
+          <p className="text-2xl text-blue-600 mb-6 italic font-medium">Moderniser sans perdre le terrain</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 text-gray-900 tracking-tight leading-[1.05]">
             Auchan — Modernisation d'outils magasin
           </h1>
@@ -46,13 +46,37 @@ export function AuchanOutilsMagasin() {
         </div>
       </section>
 
-
-
-
-
+      {/* Schema Invite */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-sm p-6 md:p-8">
+          <div className="flex items-start gap-4">
+            <div className="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium text-blue-900 mb-2">Si vous aimez les schémas</h3>
+              <p className="text-blue-800 leading-relaxed mb-4">
+                Découvrez ci-dessous un résumé visuel de cette étude de cas, qui illustre 
+                l'approche méthodologique et les résultats clés.
+              </p>
+              <a 
+                href="#schema-resume" 
+                className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-800 font-medium"
+              >
+                Voir le schéma de synthèse
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Main Content - 2 Columns Layout */}
-      <section className="max-w-[1440px] mx-auto px-6 lg:px-8 pb-32">
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-32">
         <div className="grid lg:grid-cols-13 gap-12 lg:gap-16">
           
           {/* Left Column - Content */}
@@ -356,18 +380,18 @@ export function AuchanOutilsMagasin() {
       {/* Schema Resume */}
       <section id="schema-resume" className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
         <div className="bg-gray-50 rounded-sm p-8 md:p-12">
-          <div className="text-center mb-8">
+          <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl text-gray-900 mb-4">Résumé visuel de l'approche méthodologique et des résultats clés :</h2>
-            <p className="text-base text-gray-600 mt-4">Cliquez sur l'image pour l'ouvrir dans un nouvel onglet.</p>
+            <p className="text-base text-gray-600">Cliquez sur l'image pour l'ouvrir dans un nouvel onglet.</p>
           </div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-sm p-8 shadow-sm">
-              <a href="/case-studies/auchan-outils.svg" target="_blank" rel="noopener noreferrer">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-sm p-8 shadow-sm min-h-96 flex items-center justify-center">
+              <a href="/case-studies/auchan-outils.svg" target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
                 <ImageWithFallback
                   src="/case-studies/auchan-outils.svg"
-                  alt="Schéma de synthèse - DREAL Comfluence"
-                  className="w-full h-auto rounded-sm"
+                  alt="Schéma de synthèse - Auchan Outils Magasin"
+                  className="w-full h-auto max-h-96 rounded-sm"
                 />
               </a>
             </div>

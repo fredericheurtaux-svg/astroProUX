@@ -3,14 +3,63 @@ import React, { useState } from 'react'
 const ERROR_IMG_SRC =
   'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzLjciPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iNiIvPjxwYXRoIGQ9Im0xNiA1OCAxNi0xOCAzMiAzMiIvPjxjaXJjbGUgY3g9IjUzIiBjeT0iMzUiIHI9IjciLz48L3N2Zz4KCg=='
 
-export function ImageWithFallback(props: React.ImgHTMLAttributes<HTMLImageElement>) {
+interface ImageWithFallbackProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  webpSrc?: string;
+  imageSizes?: string;
+}
+
+export function ImageWithFallback({ 
+  src, 
+  webpSrc, 
+  alt, 
+  style, 
+  className, 
+  imageSizes,
+  ...rest 
+}: ImageWithFallbackProps) {
   const [didError, setDidError] = useState(false)
 
   const handleError = () => {
     setDidError(true)
   }
 
-  const { src, alt, style, className, ...rest } = props
+  // Détecter si c'est un SVG
+  const isSvg = src?.endsWith('.svg') || false
+
+  // Si SVG, afficher directement sans picture élément (pas de WebP pour SVG)
+  if (isSvg && !didError) {
+    return (
+      <img 
+        src={src} 
+        alt={alt} 
+        className={className} 
+        style={style}
+        loading="lazy"
+        sizes={imageSizes}
+        {...rest} 
+        onError={handleError}
+      />
+    )
+  }
+
+  // Si WebP fourni (pour les images raster), utiliser <picture>
+  if (webpSrc && !didError) {
+    return (
+      <picture>
+        <source srcSet={webpSrc} type="image/webp" sizes={imageSizes} />
+        <img 
+          src={src} 
+          alt={alt} 
+          className={className} 
+          style={style}
+          loading="lazy"
+          sizes={imageSizes}
+          {...rest} 
+          onError={handleError}
+        />
+      </picture>
+    )
+  }
 
   return didError ? (
     <div
@@ -22,6 +71,15 @@ export function ImageWithFallback(props: React.ImgHTMLAttributes<HTMLImageElemen
       </div>
     </div>
   ) : (
-    <img src={src} alt={alt} className={className} style={style} {...rest} onError={handleError} />
+    <img 
+      src={src} 
+      alt={alt} 
+      className={className} 
+      style={style} 
+      loading="lazy"
+      sizes={imageSizes}
+      {...rest} 
+      onError={handleError} 
+    />
   )
 }

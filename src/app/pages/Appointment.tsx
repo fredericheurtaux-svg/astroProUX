@@ -248,124 +248,176 @@ export function Appointment() {
       </section>
 
       {/* Form Steps */}
-      <section className="max-w-5xl mx-auto px-4 lg:px-12 pb-20">
+      <section className="max-w-7xl mx-auto px-4 lg:px-12 pb-20">
         {step === 1 && (
-          <div className="bg-gray-50 p-8 md:p-10 rounded border border-gray-200">
-            <h2 className="text-2xl mb-6 text-gray-900">
-              Parlez-moi de vous
-            </h2>
-            
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm mb-2 text-gray-700">
-                    Nom et prénom *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
-                  />
+          <div className="grid lg:grid-cols-3 gap-8  ">
+
+            {/* Left Column - À quoi s'attendre */}
+            <div className="pt-10">
+              <h2 className="text-2xl mb-6 text-gray-900">
+                Déroulé type d'un échange
+              </h2>
+              <div className="space-y-4 flex flex-col">
+                <div className="bg-white p-6 rounded border border-gray-200">
+                  <p className="text-gray-700 text-sm">
+                    Vous me présentez votre projet et vos enjeux<br/> 
+                    (L'UX commence par de l'écoute)
+                  </p>
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm mb-2 text-gray-700">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="phone" className="block text-sm mb-2 text-gray-700">
-                    Téléphone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
-                  />
+                <div className="flex justify-center">
+                  <div className="text-gray-400 text-2xl">↓</div>
                 </div>
 
-                <div>
-                  <label htmlFor="company" className="block text-sm mb-2 text-gray-700">
-                    Entreprise
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
-                  />
+                <div className="bg-white p-6 rounded border border-gray-200">
+                  <p className="text-gray-700 text-sm">
+                    J'identifie comment je peux vous aider, 
+                    en l'illustrant si possible par des exemples concrets et de démarches projets proches de votre contexte.
+                  </p>
+                </div>
+
+                <div className="flex justify-center">
+                  <div className="text-gray-400 text-2xl">↓</div>
+                </div>
+
+                <div className="bg-white p-6 rounded border border-gray-200">
+                  <p className="text-gray-700 text-sm">
+                    On décide ensemble de la suite,
+                    mais avant il faut remplir ce formulaire
+                  </p>
+                </div>
+
+                <div className="flex justify-center">
+                  <ArrowRight className="w-6 h-6 text-gray-400" />
                 </div>
               </div>
+            </div>
 
-              <div>
-                <label htmlFor="projectType" className="block text-sm mb-2 text-gray-700">
-                  Type de projet *
-                </label>
-                <select
-                  id="projectType"
-                  name="projectType"
-                  required
-                  value={formData.projectType}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
+            {/* Right Column - Form (2/3 width) */}
+            <div className="lg:col-span-2 bg-gray-50 p-8 md:p-10 rounded border border-gray-200">
+              <h2 className="text-2xl mb-6 text-gray-900">
+                Parlez-moi de vous
+              </h2>
+              
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm mb-2 text-gray-700">
+                      Nom et prénom *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      aria-required="true"
+                      aria-label="Nom et prénom requis"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm mb-2 text-gray-700">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      aria-required="true"
+                      aria-label="Adresse email requise"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm mb-2 text-gray-700">
+                      Téléphone
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="company" className="block text-sm mb-2 text-gray-700">
+                      Entreprise
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="projectType" className="block text-sm mb-2 text-gray-700">
+                    Type de projet *
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    required
+                    aria-required="true"
+                    aria-label="Type de projet requis"
+                    value={formData.projectType}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
+                  >
+                    <option value="">Sélectionnez un type de projet</option>
+                    {projectTypes.map((type) => (
+                      <option key={type} value={type}>{type}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm mb-2 text-gray-700">
+                    Votre projet en quelques mots
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent resize-none bg-white"
+                    placeholder="Contexte, objectifs, besoins identifiés..."
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => canProceedToStep2 && setStep(2)}
+                  disabled={!canProceedToStep2}
+                  aria-label={canProceedToStep2 ? "Procéder à l'étape 2 : choisir un créneau" : "Veuillez remplir tous les champs requis (Nom, Email, Type de projet)"}
+                  className={`w-full px-6 py-3 rounded flex items-center justify-center gap-2 transition-colors ${
+                    canProceedToStep2
+                      ? 'bg-gray-900 text-white hover:bg-gray-800'
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  }`}
                 >
-                  <option value="">Sélectionnez un type de projet</option>
-                  {projectTypes.map((type) => (
-                    <option key={type} value={type}>{type}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm mb-2 text-gray-700">
-                  Votre projet en quelques mots
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent resize-none bg-white"
-                  placeholder="Contexte, objectifs, besoins identifiés..."
-                />
-              </div>
-
-              <button
-                type="button"
-                onClick={() => canProceedToStep2 && setStep(2)}
-                disabled={!canProceedToStep2}
-                className={`w-full px-6 py-3 rounded flex items-center justify-center gap-2 transition-colors ${
-                  canProceedToStep2
-                    ? 'bg-gray-900 text-white hover:bg-gray-800'
-                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                }`}
-              >
-                Choisir un créneau
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </form>
+                  Choisir un créneau
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </form>
+            </div>
           </div>
         )}
 
@@ -434,9 +486,9 @@ export function Appointment() {
                             }
                           }
                           return (
-                            <label
-                              key={slotIndex}
-                              className={`p-3 border rounded cursor-pointer transition-all text-center text-sm ${
+                    <label
+                      key={slotIndex}
+                      className={`p-3 border rounded cursor-pointer transition-all text-center text-sm ${
                                 formData.timeSlot === slotValue
                                   ? 'border-gray-900 bg-gray-900 text-white'
                                   : disabled
@@ -450,6 +502,7 @@ export function Appointment() {
                                 value={slotValue}
                                 checked={formData.timeSlot === slotValue}
                                 onChange={handleChange}
+                                aria-label={`Créneau de ${slot} le ${dayLabel}${disabled ? " - Indisponible" : ""}`}
                                 className="sr-only"
                                 disabled={disabled}
                               />
@@ -466,6 +519,7 @@ export function Appointment() {
               <button
                 type="submit"
                 disabled={!formData.timeSlot}
+                aria-label={formData.timeSlot ? `Confirmer le rendez-vous pour ${formData.timeSlot}` : "Veuillez d'abord choisir un créneau horaire"}
                 className={`w-full px-6 py-3 rounded flex items-center justify-center gap-2 transition-colors ${
                   formData.timeSlot
                     ? 'bg-gray-900 text-white hover:bg-gray-800'
@@ -530,7 +584,7 @@ export function Appointment() {
       </section>
 
       {/* Info Section */}
-      {step < 3 && (
+      {step === 1 && (
         <section className="bg-gray-100 py-16">
           <div className="max-w-7xl mx-auto px-4 lg:px-12">
             <h3 className="text-xl mb-6 text-gray-900 text-center">

@@ -19,7 +19,7 @@ export function SNCFReseauNomadeVigirail() {
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-20 md:pb-28">
         <div className="max-w-4xl mb-12">
-          <p className="text-sm text-gray-500 mb-4 italic">Le live design pour accélérer</p>
+          <p className="text-2xl text-blue-600 mb-6 italic font-medium">Le live design sortir la conception du chemin critique</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 text-gray-900 tracking-tight leading-[1.05]">
             SNCF Réseau — Nomade / Vigirail
           </h1>
@@ -47,7 +47,7 @@ export function SNCFReseauNomadeVigirail() {
       </section>
 
       {/* Schema Invite */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-6">
         <div className="bg-blue-50 border border-blue-200 rounded-sm p-6 md:p-8">
           <div className="flex items-start gap-4">
             <div className="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center flex-shrink-0">
@@ -339,18 +339,18 @@ export function SNCFReseauNomadeVigirail() {
       {/* Schema Resume */}
       <section id="schema-resume" className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
         <div className="bg-gray-50 rounded-sm p-8 md:p-12">
-          <div className="text-center mb-8">
-             <h2 className="text-2xl md:text-3xl text-gray-900 mb-4">Résumé visuel de l'approche méthodologique et des résultats clés :</h2>
-             <p className="text-base text-gray-600 mt-4">Cliquez sur l'image pour l'ouvrir dans un nouvel onglet.</p>
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl text-gray-900 mb-4">Résumé visuel de l'approche méthodologique et des résultats clés :</h2>
+            <p className="text-base text-gray-600">Cliquez sur l'image pour l'ouvrir dans un nouvel onglet.</p>
           </div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-sm p-8 shadow-sm">
-              <a href="/case-studies/NOMAD 2.png" target="_blank" rel="noopener noreferrer">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-sm p-8 shadow-sm min-h-96 flex items-center justify-center">
+              <a href="/case-studies/NOMAD 2.png" target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
                 <ImageWithFallback
                   src="/case-studies/NOMAD 2.png"
                   alt="Schéma de synthèse - SNCF Réseau Nomade Vigirail"
-                  className="w-full h-auto rounded-sm"
+                  className="w-full h-auto max-h-96 rounded-sm"
                 />
               </a>
             </div>
