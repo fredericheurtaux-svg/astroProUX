@@ -9,7 +9,7 @@
     "build:analyze": "vite build && node scripts/build-analyzer.js",
     "analyze": "node scripts/analyze-bundle.js",
     "optimize:svg": "node scripts/optimize-svg.js",
-    "start": "node server.js",
+    "start": "npm run build && node server.js",
     "optimize": "npm run analyze && npm run build:analyze"
   },
   "dependencies": {
