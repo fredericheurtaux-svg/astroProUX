@@ -29,29 +29,22 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          // React core
-          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
+          // React core + Emotion + MUI (all depend on React)
+          if (id.includes('node_modules/react/') || 
+              id.includes('node_modules/react-dom/') ||
+              id.includes('@emotion/') ||
+              id.includes('@mui/')) {
             return 'react-vendor';
           }
           
-          // UI Framework (Material UI - très lourd)
-          if (id.includes('@mui/material')) {
-            return 'mui-vendor';
-          }
-          
-          // Emotion (styling)
-          if (id.includes('@emotion/')) {
-            return 'emotion-vendor';
-          }
-          
-          // Charts (lourd)
-          if (id.includes('recharts')) {
-            return 'charts-vendor';
-          }
-          
-          // Router
+          // Router (depends on React)
           if (id.includes('react-router')) {
             return 'router-vendor';
+          }
+          
+          // Charts (lourd, depends on React)
+          if (id.includes('recharts')) {
+            return 'charts-vendor';
           }
           
           // All other node_modules en un seul chunk
