@@ -56,20 +56,6 @@ app.use((req, res, next) => {
 
 app.use(express.static(distPath));
 
-// SPA fallback - serve index.html for all unmapped routes (client-side routing)
-app.get('*', (req, res) => {
-  // Don't serve index.html for API routes that weren't matched above
-  if (req.path.startsWith('/api')) {
-    return res.status(404).json({ error: 'Not found' });
-  }
-  
-  // Serve index.html for all other routes (SPA routing with no-cache headers)
-  res.set("Cache-Control", "public, max-age=0, must-revalidate");
-  res.set("Pragma", "no-cache");
-  res.set("Expires", "0");
-  res.sendFile(path.join(distPath, 'index.html'));
-});
-
 // Fichiers de données publics
 //app.use("/data", express.static(dataDir));
 
@@ -120,7 +106,7 @@ app.post("/api/contact", async (req, res) => {
       rendezVousText = '';
     }
 
-    // Ajoute le Type de projet dans le mail si fourni (compatibilité contact et appoitment)
+    // Ajoute le Type de ce projet dans le mail si fourni (compatibilité contact et appoitment)
     let projectTypeText = '';
     if (projectType) {
       projectTypeText = `\n\nType de projet : ${projectType}`;
@@ -128,7 +114,7 @@ app.post("/api/contact", async (req, res) => {
       // Si déjà inclus dans le message, ne pas dupliquer
       projectTypeText = '';
     }
-
+ 
     await transporter.sendMail({
       from: process.env.EMAIL_USER || process.env.SMTP_USER,
       to:
@@ -197,9 +183,24 @@ app.post("/api/admin/availability", async (req, res) => {
 
 // Catch-all React SPA : toujours tout à la fin
 app.get("*", (req, res) => {
-  res.sendFile(path.join(distPath, "index.html"));
+  // Don't serve index.html for API routes that weren't matched above
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ error: 'Not found' });
+  }
+  
+  // Serve index.html for all other routes (SPA routing with no-cache headers)
+  res.set("Cache-Control", "public, max-age=0, must-revalidate");
+  res.set("Pragma", "no-cache");
+  res.set("Expires", "0");
+  res.sendFile(path.join(distPath, "index.html"), (err) => {
+    if (err) {
+      console.error('Error sending index.html:', err);
+      res.status(500).send('Error loading page');
+    }
+  });
 });
 
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server for heurtaux running on http://localhost:${port}`);
+  console.log(`Serving static files from: ${distPath}`);
 });
