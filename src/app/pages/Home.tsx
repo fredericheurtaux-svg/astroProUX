@@ -85,7 +85,7 @@ export function Home() {
               back-office, transformation digitale.
             </p>
             <p>
-             J'accompane actuellement la startup <a href="https://freshdata.fr" target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-gray-700 underline">FreshData</a>. Je suis disponible 3j/sem pour vous accompager.
+             J'accompagne actuellement la startup <a href="https://freshdata.fr" target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-gray-700 underline">FreshData</a>. Je suis disponible 3j/sem.
             </p>
           </div>
 

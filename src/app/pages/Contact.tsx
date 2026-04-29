@@ -10,7 +10,15 @@ export function Contact() {
     company: "",
     message: ""
   });
+  const [errors, setErrors] = useState({ email: "" });
   const [submitted, setSubmitted] = useState(false);
+
+  const validateEmail = (email: string): string => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) return "L'email est requis";
+    if (!emailRegex.test(email)) return "Veuillez entrer une adresse email valide";
+    return "";
+  };
 
 // Ajoute ici la valeur du rendezvous 
   const rendezvous = "PAS DE RDV CONTACT";
@@ -18,6 +26,13 @@ export function Contact() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Valider l'email
+    const emailError = validateEmail(formData.email);
+    if (emailError) {
+      setErrors({ email: emailError });
+      return;
+    }
 
     try {
       const response = await fetch('/api/contact', {
@@ -40,6 +55,7 @@ export function Contact() {
       setTimeout(() => {
         setSubmitted(false);
         setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+        setErrors({ email: "" });
       }, 6000);
     } catch (error) {
       console.error('Erreur:', error);
@@ -48,10 +64,17 @@ export function Contact() {
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+    
+    // Valider l'email au changement
+    if (name === "email") {
+      const emailError = validateEmail(value);
+      setErrors({ ...errors, email: emailError });
+    }
   };
 
   return (
@@ -187,8 +210,15 @@ export function Contact() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
+                        className={`w-full px-4 py-3 border rounded focus:outline-none focus:ring-2 focus:border-transparent bg-white ${
+                          errors.email 
+                            ? 'border-red-500 focus:ring-red-500' 
+                            : 'border-gray-300 focus:ring-gray-900'
+                        }`}
                       />
+                      {errors.email && (
+                        <p className="text-sm text-red-600 mt-1">{errors.email}</p>
+                      )}
                     </div>
                   </div>
 

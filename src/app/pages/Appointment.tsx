@@ -23,7 +23,15 @@ export function Appointment() {
     timeSlot: "",
     message: "",
   });
+  const [errors, setErrors] = useState({ email: "" });
   const [availability, setAvailability] = useState<AvailabilityData | null>(null);
+
+  const validateEmail = (email: string): string => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) return "L'email est requis";
+    if (!emailRegex.test(email)) return "Veuillez entrer une adresse email valide";
+    return "";
+  };
 
   useEffect(() => {
     fetch("/data/availability.json")
@@ -99,10 +107,17 @@ export function Appointment() {
   }));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+    
+    // Valider l'email au changement
+    if (name === "email") {
+      const emailError = validateEmail(value);
+      setErrors({ ...errors, email: emailError });
+    }
   };
 
 
@@ -135,7 +150,7 @@ export function Appointment() {
     }
   };
 
-  const canProceedToStep2 = formData.name && formData.email && formData.projectType;
+  const canProceedToStep2 = formData.name && formData.email && formData.projectType && !errors.email;
 
   // Onglets semaines
  type TabKey = "this" | "next" | "after";
@@ -331,8 +346,15 @@ export function Appointment() {
                       aria-label="Adresse email requise"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent bg-white"
+                      className={`w-full px-4 py-3 border rounded focus:outline-none focus:ring-2 focus:border-transparent bg-white ${
+                        errors.email 
+                          ? 'border-red-500 focus:ring-red-500' 
+                          : 'border-gray-300 focus:ring-gray-900'
+                      }`}
                     />
+                    {errors.email && (
+                      <p className="text-sm text-red-600 mt-1">{errors.email}</p>
+                    )}
                   </div>
                 </div>
 

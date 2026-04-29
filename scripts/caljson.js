@@ -77,6 +77,7 @@ Calendar.calendars().forEach(cal => {
     const end = new Date(ev.endDate());
 
     if (end > now && start < horizonEnd) {
+      console.log(cal.name() + " | " + ev.startDate() + " -> " + ev.endDate());
       events.push({
         start: start,
         end: end,
