@@ -1,3 +1,17 @@
+# Mon Site Pro
+
+## Google Analytics (GA4)
+
+Le tracking est integre avec une variable d'environnement Vite :
+
+1. Copie `.env.example` vers `.env`.
+2. Renseigne ton identifiant de mesure GA4 dans `VITE_GA_MEASUREMENT_ID` (format `G-XXXXXXXXXX`).
+3. Relance le serveur de dev ou rebuild le site.
+
+Le suivi des pages est envoye automatiquement a chaque changement de route (SPA).
+
+---
+
 # Astro Starter Kit: Minimal
 
 ```sh

@@ -3,6 +3,7 @@ import { Menu, X, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { ScrollToTop } from "./ScrollToTop";
 import { SkipLinks } from "./SkipLinks";
+import { GoogleAnalytics } from "./GoogleAnalytics";
 
 export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,6 +26,7 @@ export function Layout() {
 
   return (
     <div className="min-h-screen bg-white">
+      <GoogleAnalytics />
       <SkipLinks />
       <ScrollToTop />
       {/* Navigation */}

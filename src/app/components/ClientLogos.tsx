@@ -6,7 +6,7 @@ export function SNCFLogo() {
       src="/logos/sncf.svg" 
       alt="SNCF Réseau" 
       className="h-16 w-auto"
-      style={{ filter: 'invert(var(--logo-invert, 0))' }}
+      style={{ filter: 'grayscale(1) contrast(1.05)' }}
     />
   );
 }
@@ -17,7 +17,7 @@ export function AuchanLogo() {
       src="/logos/auchan.svg" 
       alt="Auchan" 
       className="h-13 w-auto"
-      style={{ filter: 'invert(var(--logo-invert, 0))' }}
+      style={{ filter: 'grayscale(1) contrast(1.05)' }}
     />
   );
 }
@@ -28,7 +28,7 @@ export function AdeoLogo() {
       src="/logos/adeo.svg" 
       alt="ADEO" 
       className="h-18 w-auto"
-      style={{ filter: 'invert(var(--logo-invert, 0))' }}
+      style={{ filter: 'grayscale(1) contrast(1.05)' }}
     />
   );
 }
@@ -39,7 +39,7 @@ export function DrealLogo() {
       src="/logos/dreal.svg" 
       alt="DREAL" 
       className="h-28 max-w-full"
-      style={{ filter: 'invert(var(--logo-invert, 0))' }}
+      style={{ filter: 'grayscale(1) contrast(1.05)' }}
     />
   );
 }
@@ -50,7 +50,7 @@ export function AxaLogo() {
       src="/logos/axa.svg" 
       alt="AXA" 
       className="h-16 w-auto"
-      style={{ filter: 'invert(var(--logo-invert, 0))' }}
+      style={{ filter: 'grayscale(1) contrast(1.05)' }}
     />
   );
 }
@@ -61,7 +61,7 @@ export function MatmutLogo() {
       src="/logos/matmut.svg" 
       alt="Matmut" 
       className="h-18 w-auto"
-      style={{ filter: 'invert(var(--logo-invert, 0))' }}
+      style={{ filter: 'grayscale(1) contrast(1.05)' }}
     />
   );
 }
@@ -72,7 +72,7 @@ export function MCommeMutuelleLogo() {
       src="/logos/m-comme-mutuelle.svg" 
       alt="M Comme Mutuelle" 
       className="h-20 w-auto"
-      style={{ filter: 'invert(var(--logo-invert, 0))' }}
+      style={{ filter: 'grayscale(1) contrast(1.05)' }}
     />
   );
 }
@@ -83,7 +83,7 @@ export function LeroyMerlinLogo() {
       src="/logos/leroy-merlin.svg" 
       alt="Leroy Merlin" 
       className="h-16 w-auto"
-      style={{ filter: 'invert(var(--logo-invert, 0))' }}
+      style={{ filter: 'grayscale(1) contrast(1.05)' }}
     />
   );
 }
