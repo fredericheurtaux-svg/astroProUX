@@ -1,10 +1,6 @@
-import { Link } from "react-router";
-import { ArrowRight } from "lucide-react";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-
-export default function MentionsLegales() {
+export function MentionsLegalesContent({ className = "max-w-3xl mx-auto px-4 py-16" }: { className?: string }) {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-16">
+    <div className={className}>
       <h1 className="text-3xl font-bold mb-6">Mentions légales</h1>
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-2">Éditeur du site</h2>
@@ -45,4 +41,8 @@ export default function MentionsLegales() {
       </section>
     </div>
   );
+}
+
+export default function MentionsLegales() {
+  return <MentionsLegalesContent />;
 }

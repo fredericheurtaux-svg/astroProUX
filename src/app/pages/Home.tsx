@@ -75,13 +75,13 @@ export function Home() {
         <div className="max-w-4xl">
           <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl">
             <h1 className="text-4xl md:text-5xl mb-6 text-gray-900">
-               UX designer freelance, 
+               UX researcher et UX designer freelance à Lille,
             </h1> 
             <p>je collabore avec les entreprises pour concevoir des produits numériques utiles et intuitifs, 
                en articulant besoins utilisateurs, enjeux métier et contraintes de faisabilité.
             </p>
             <p>
-              Spécialisée dans les contextes complexes : applications métier, outils internes, 
+              UX researcher freelance basé à Lille, j'interviens aussi à distance partout en France. Spécialisé dans les contextes complexes : applications métier, outils internes, 
               back-office, transformation digitale.
             </p>
             <p>

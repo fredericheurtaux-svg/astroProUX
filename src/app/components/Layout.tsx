@@ -1,6 +1,7 @@
 import { Outlet, Link, useLocation } from "react-router";
 import { Menu, X, Linkedin } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import seo from "../seo.json";
 import { ScrollToTop } from "./ScrollToTop";
 import { SkipLinks } from "./SkipLinks";
 import { GoogleAnalytics } from "./GoogleAnalytics";
@@ -9,12 +10,19 @@ export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    const path = location.pathname.length > 1 ? location.pathname.replace(/\/+$/, "") : location.pathname;
+    const page = (seo.pages as Record<string, { title: string }>)[path];
+    document.title = (page || seo.fallback).title;
+  }, [location.pathname]);
+
   const navigation = [
     { name: 'Services', href: '/services' },
     { name: 'Méthodes', href: '/methods' },
     { name: 'Études de cas', href: '/case-studies' },
     { name: 'À propos', href: '/about' },
     { name: 'Contact', href: '/contact' },
+    { name: 'Espace client', href: '/client' },
   ];
 
   const isActive = (href: string) => {

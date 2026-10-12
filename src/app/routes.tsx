@@ -1,7 +1,13 @@
 import { createBrowserRouter } from "react-router";
 import { Suspense, lazy } from "react";
 import { Layout } from "./components/Layout";
+import { ClientLayout } from "./components/ClientLayout";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Home } from "./pages/Home";
+import { Login } from "./pages/client/Login";
+import { ClientDashboard } from "./pages/client/Dashboard";
+import { AuditHeuristiqueList } from "./pages/client/AuditHeuristiqueList";
+import { ProjectFindings } from "./pages/client/ProjectFindings";
 
 // Lazy load non-critical pages
 const About = lazy(() => import("./pages/About").then(m => ({ default: m.About })));
@@ -15,6 +21,12 @@ const AuchanOutilsMagasin = lazy(() => import("./pages/case-studies/AuchanOutils
 const SNCFReseauNomadeVigirail = lazy(() => import("./pages/case-studies/SNCFReseauNomadeVigirail").then(m => ({ default: m.SNCFReseauNomadeVigirail })));
 const DrealComfluence = lazy(() => import("./pages/case-studies/DrealComfluence").then(m => ({ default: m.DrealComfluence })));
 const MentionsLegales = lazy(() => import("./pages/MentionsLegales").then(m => ({ default: m.default })));
+
+const Theatronic = lazy(() => import("./pages/theatronic/Theatronic").then(m => ({ default: m.Theatronic })));
+
+const TheatronicGalerie = lazy(() => import("./pages/theatronic/TheatronicGalerie").then(m => ({ default: m.TheatronicGalerie })));
+
+const TheatronicMentions = lazy(() => import("./pages/theatronic/TheatronicMentions").then(m => ({ default: m.TheatronicMentions })));
 
 // Loading fallback component
 const PageLoader = () => (
@@ -117,6 +129,50 @@ export const router = createBrowserRouter([
           </Suspense>
         )
       },
+    ],
+  },
+  // Théâtronic - independent section (own header/footer)
+  {
+    path: "/theatronic",
+    Component: () => (
+      <Suspense fallback={<PageLoader />}>
+        <Theatronic />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/theatronic/galerie",
+    Component: () => (
+      <Suspense fallback={<PageLoader />}>
+        <TheatronicGalerie />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/theatronic/mentions-legales",
+    Component: () => (
+      <Suspense fallback={<PageLoader />}>
+        <TheatronicMentions />
+      </Suspense>
+    ),
+  },
+  // Client space - login (no auth required)
+  {
+    path: "/client/login",
+    Component: Login,
+  },
+  // Client space - protected routes
+  {
+    path: "/client",
+    Component: () => (
+      <ProtectedRoute>
+        <ClientLayout />
+      </ProtectedRoute>
+    ),
+    children: [
+      { index: true, Component: ClientDashboard },
+      { path: "audit-heuristique", Component: AuditHeuristiqueList },
+      { path: "audit-heuristique/:projectId/findings", Component: ProjectFindings },
     ],
   },
 ]);

@@ -1,0 +1,68 @@
+{
+  "fallback": {
+    "title": "UX researcher freelance à Lille | Frédéric Heurtaux",
+    "description": "UX researcher et UX designer freelance à Lille : recherche utilisateur, conception et ateliers pour applications métier. Missions à Lille, dans les Hauts-de-France et à distance."
+  },
+  "pages": {
+    "/": {
+      "title": "UX researcher freelance à Lille | Frédéric Heurtaux",
+      "description": "UX researcher et UX designer freelance à Lille : recherche utilisateur, conception et ateliers pour applications métier. Missions à Lille, dans les Hauts-de-France et à distance."
+    },
+    "/services": {
+      "title": "Services d'un UX researcher freelance à Lille | Frédéric Heurtaux",
+      "description": "Conseil et cadrage UX, recherche utilisateur, conception d'interfaces et formation : les missions d'un UX researcher freelance basé à Lille."
+    },
+    "/methods": {
+      "title": "Méthodes d'UX research : UX researcher freelance à Lille | Frédéric Heurtaux",
+      "description": "Entretiens, observation terrain, ateliers, tests utilisateurs : les méthodes d'UX research utilisées pour concevoir des applications métier complexes."
+    },
+    "/case-studies": {
+      "title": "Études de cas UX research : retail, transport, public | UX researcher freelance Lille",
+      "description": "Études de cas d'un UX researcher freelance : SNCF Réseau, Auchan, DREAL. Contexte, démarche, livrables et résultats."
+    },
+    "/case-studies/sncf-reseau-refonte": {
+      "title": "Étude de cas SNCF Réseau : refonte d'un outil métier | Frédéric Heurtaux",
+      "description": "Étude de cas UX : refonte d'un outil métier pour SNCF Réseau, de la recherche utilisateur à la conception."
+    },
+    "/case-studies/auchan-outils-magasin": {
+      "title": "Étude de cas Auchan : outils magasin | Frédéric Heurtaux",
+      "description": "Étude de cas UX : conception d'outils pour les équipes en magasin Auchan, à partir d'observations terrain."
+    },
+    "/case-studies/sncf-reseau-nomade-vigirail": {
+      "title": "Étude de cas SNCF Réseau : application nomade Vigirail | Frédéric Heurtaux",
+      "description": "Étude de cas UX : conception de l'application nomade Vigirail pour les agents de terrain de SNCF Réseau."
+    },
+    "/case-studies/dreal-comfluence": {
+      "title": "Étude de cas DREAL : refonte de Confluence | Frédéric Heurtaux",
+      "description": "Étude de cas UX : amélioration de l'organisation et de l'usage de Confluence pour la DREAL."
+    },
+    "/about": {
+      "title": "À propos : UX researcher freelance à Lille | Frédéric Heurtaux",
+      "description": "Parcours, approche et valeurs de Frédéric Heurtaux, UX researcher freelance à Lille spécialisé dans les applications métier."
+    },
+    "/contact": {
+      "title": "Contact : UX researcher freelance à Lille | Frédéric Heurtaux",
+      "description": "Contactez Frédéric Heurtaux pour une mission d'UX research ou d'UX design freelance à Lille ou à distance."
+    },
+    "/appointment": {
+      "title": "Prendre rendez-vous : UX researcher freelance à Lille | Frédéric Heurtaux",
+      "description": "Réservez un créneau pour échanger sur votre projet d'UX research ou d'UX design."
+    },
+    "/mentions-legales": {
+      "title": "Mentions légales | Frédéric Heurtaux",
+      "description": "Mentions légales du site de Frédéric Heurtaux, UX researcher freelance à Lille."
+    },
+    "/theatronic": {
+      "title": "Théâtronic – Atelier d'éveil robotique et arts de la scène",
+      "description": "Théâtronic : un atelier où les enfants inventent une histoire, fabriquent son univers et programment un théâtre miniature robotisé. Médiathèques, centres sociaux, écoles."
+    },
+    "/theatronic/galerie": {
+      "title": "Galerie – Théâtronic",
+      "description": "Photos, vidéos et histoires créées lors des ateliers Théâtronic : théâtre mécanique et papier découpé."
+    },
+    "/theatronic/mentions-legales": {
+      "title": "Mentions légales – Théâtronic",
+      "description": "Mentions légales du site Théâtronic."
+    }
+  }
+}

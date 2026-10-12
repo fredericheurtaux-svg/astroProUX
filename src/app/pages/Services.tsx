@@ -88,7 +88,7 @@ export function Services() {
       <section className="max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-16 md:pt-24 md:pb-20">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl mb-6 text-gray-900">
-            Mes services d'UX research et Design
+            Services d'UX research et UX design freelance à Lille
           </h1>
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
             J'interviens sur toutes les phases de conception, de la recherche utilisateur à la livraison de spécifications détaillées. 
