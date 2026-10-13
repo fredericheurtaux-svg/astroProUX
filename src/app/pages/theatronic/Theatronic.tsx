@@ -9,14 +9,14 @@ import { ExampleCard } from "./ExampleCard";
 import { examples } from "./data";
 
 const infos = [
-  { title: "Tranche d'âge", value: "À partir de 8 ans", text: "Conçu pour s'adapter des classes de primaire jusqu'au collège sans prérequis technique." },
+  { title: "Tranche d'âge", value: "À partir de 8 ans", text: "Conçu pour s'adapter du primaire (CE2) jusqu'au collège sans prérequis technique." },
   { title: "Format de groupe", value: "Demi-classe ou 8 participants en centre social", text: "Favorise l'entraide, le temps de parole et une manipulation sereine des machines." },
   { title: "Temporalité", value: "3 séances minimum", text: "Un cycle complet permettant de mûrir l'écriture, la construction et la restitution finale." },
 ];
 
 const steps = [
   { n: "01", tag: "Écriture", title: "Imaginer", icon: PenLine, label: "Scénario & dialogues", text: "Inventer un univers, une intrigue et des personnages. Poser sur le papier le décor d'un monde singulier." },
-  { n: "02", tag: "Matérialité", title: "Créer", icon: Scissors, label: "Découpage & sons", text: "Ecrire les dialogues et la narration. Fabriquer les décors (IA si 3D), format en 3 séances), dessiner les personnages et enregistrer les voix. Le papier devient une histoire." },
+  { n: "02", tag: "Matérialité", title: "Créer", icon: Scissors, label: "Découpage & sons", text: "Ecrire les dialogues et la narration. Fabriquer les décors, dessiner les personnages et enregistrer les voix. Le papier devient une histoire." },
   { n: "03", tag: "Technologie", title: "Programmer", icon: Bot, label: "Moteurs & éclairage", text: "Donner des instructions aux lumières, au rideau et aux personnages à l'aide de commandes simples et visuelles." },
   { n: "04", tag: "Organisation", title: "Coopérer", icon: Users, label: "Spectacle partagé", text: "Répartir les rôles, tester la scène et construire une création commune offerte au regard des autres." },
 ];
@@ -56,7 +56,7 @@ const modes = [
 const perks = [
   { icon: MailCheck, text: "Réponse et devis pédagogique sous 48h" },
   { icon: Package, text: "Matériel tout-inclus fourni" },
-  { icon: BadgeCheck, text: "Éligibité Pass Culture en cours" },
+  { icon: BadgeCheck, text: "Éligibilité Pass Culture en cours" },
   { icon: Headset, text: "Médiateur qualifié dédié" },
 ];
 
@@ -75,7 +75,8 @@ export function Theatronic() {
             </h1>
             <p className="text-base sm:text-lg text-[#546075] mb-8 max-w-xl">
               Avec Théâtronic, les enfants inventent une histoire, fabriquent son univers et programment un véritable
-              théâtre miniature robotisé. Chacun peut participer avec ses idées, ses mains et sa créativité.
+              théâtre miniature robotisé. Chacun peut participer avec ses idées, ses mains et sa créativité.<br /><br />
+              Ils ne regardent pas simplement un écran : ils s’en servent pour créer.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#exemples" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#f26430] text-white font-bold hover:bg-[#162238] transition-colors">

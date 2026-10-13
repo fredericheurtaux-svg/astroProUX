@@ -88,7 +88,7 @@ export function TheatronicShell({ children, title }: { children: ReactNode; titl
           <div>
             <p className="font-bold mb-3">Médiation culturelle</p>
             <p className="text-white/70 mb-3">
-              Dispositifs clés en main subventionnables (Pass Culture, Contrat Territoire-Lecture, DAAC).
+              Dispositifs clés en main subventionnables (Pass Culture, Contrat Territoire-Lecture, DAAC) sous réserve d’éligibilité et de validation du financeur.
             </p>
             <p className="flex items-center gap-2"><Mail className="w-4 h-4" aria-hidden="true" />frederic.heurtaux@gmail.com</p>
             <p className="flex items-center gap-2 mt-1"><MapPin className="w-4 h-4" aria-hidden="true" />Interventions France & réseau francophone</p>

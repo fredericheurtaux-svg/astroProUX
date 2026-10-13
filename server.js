@@ -1706,7 +1706,7 @@ WHERE id = ${sqlNumber(findingId)};
 
 // ── SEO : robots.txt, sitemap.xml et balises par page ────────────────────────
 const seoConfig = JSON.parse(await fs.readFile(path.join(__dirname, "src/app/seo.json"), "utf8"));
-const SITE_URL = (process.env.SITE_URL || "https://heurtaux.me").replace(/\/$/, "");
+const SITE_URL = (process.env.SITE_URL || "https://frederic.heurtaux.me").replace(/\/$/, "");
 
 const escapeHtml = (value) =>
   String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
