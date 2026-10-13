@@ -5,6 +5,8 @@ import seo from "../seo.json";
 import { ScrollToTop } from "./ScrollToTop";
 import { SkipLinks } from "./SkipLinks";
 import { GoogleAnalytics } from "./GoogleAnalytics";
+import { CookieConsent } from "./CookieConsent";
+import { openConsentPanel } from "./consent";
 
 export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,6 +37,7 @@ export function Layout() {
   return (
     <div className="min-h-screen bg-white">
       <GoogleAnalytics />
+      <CookieConsent />
       <SkipLinks />
       <ScrollToTop />
       {/* Navigation */}
@@ -145,9 +148,14 @@ export function Layout() {
             <p className="text-sm text-gray-500">
               © 2026 Frédéric Heurtaux. Tous droits réservés.
             </p>
-            <a href="/mentions-legales" className="text-sm text-gray-500 hover:underline">
-              Mentions légales
-            </a>
+            <div className="flex gap-6">
+              <button type="button" onClick={openConsentPanel} className="text-sm text-gray-500 hover:underline">
+                Gestion des cookies
+              </button>
+              <a href="/mentions-legales" className="text-sm text-gray-500 hover:underline">
+                Mentions légales
+              </a>
+            </div>
           </div>
         </div>
       </footer>

@@ -1,6 +1,9 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "react-router";
 import { Drama, Menu, X, Mail, MapPin } from "lucide-react";
+import { GoogleAnalytics } from "../../components/GoogleAnalytics";
+import { CookieConsent } from "../../components/CookieConsent";
+import { openConsentPanel } from "../../components/consent";
 
 export const font = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
 
@@ -27,6 +30,8 @@ export function TheatronicShell({ children, title }: { children: ReactNode; titl
 
   return (
     <div className="min-h-screen bg-[#fdfaf5] text-[#162238]" style={font}>
+      <GoogleAnalytics />
+      <CookieConsent />
       <header className="sticky top-0 z-50 bg-[#fdfaf5]/95 backdrop-blur border-b border-[#eddacf]">
         <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between" aria-label="Théâtronic">
           <a href="/theatronic#accueil" className="flex items-center gap-3">
@@ -96,6 +101,7 @@ export function TheatronicShell({ children, title }: { children: ReactNode; titl
         </div>
         <div className="border-t border-white/10 py-6 px-6 text-center text-xs text-white/60 flex flex-wrap justify-center gap-x-6 gap-y-2">
           <span>© {new Date().getFullYear()} Théâtronic. Programme d'action artistique et technologique pour l'enfance.</span>
+          <button type="button" onClick={openConsentPanel} className="hover:text-white">Gestion des cookies</button>
           <Link to="/theatronic/mentions-legales" className="hover:text-white">Mentions légales</Link>
         </div>
       </footer>

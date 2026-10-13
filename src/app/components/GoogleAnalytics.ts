@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
+import { deleteAnalyticsCookies, useConsent } from "./consent";
 
 declare global {
   interface Window {
@@ -13,9 +14,16 @@ const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim();
 
 export function GoogleAnalytics() {
   const location = useLocation();
+  const enabled = useConsent().choice?.analytics === true;
 
   useEffect(() => {
-    if (!GA_MEASUREMENT_ID || document.getElementById(SCRIPT_ID)) {
+    if (!GA_MEASUREMENT_ID) return;
+    (window as unknown as Record<string, unknown>)[`ga-disable-${GA_MEASUREMENT_ID}`] = !enabled;
+    if (!enabled) deleteAnalyticsCookies();
+  }, [enabled]);
+
+  useEffect(() => {
+    if (!enabled || !GA_MEASUREMENT_ID || document.getElementById(SCRIPT_ID)) {
       return;
     }
 
@@ -33,10 +41,10 @@ export function GoogleAnalytics() {
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
     document.head.appendChild(script);
-  }, []);
+  }, [enabled]);
 
   useEffect(() => {
-    if (!GA_MEASUREMENT_ID || !window.gtag) {
+    if (!enabled || !GA_MEASUREMENT_ID || !window.gtag) {
       return;
     }
 
@@ -45,7 +53,7 @@ export function GoogleAnalytics() {
       page_location: window.location.href,
       page_title: document.title,
     });
-  }, [location.pathname, location.search]);
+  }, [enabled, location.pathname, location.search]);
 
   return null;
 }
