@@ -15,37 +15,24 @@ export function GoogleAnalytics() {
   const location = useLocation();
 
   useEffect(() => {
-    if (!GA_MEASUREMENT_ID) {
+    if (!GA_MEASUREMENT_ID || document.getElementById(SCRIPT_ID)) {
       return;
     }
 
-    if (document.getElementById(SCRIPT_ID)) {
-      return;
-    }
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() {
+      // gtag.js exige l'objet arguments, pas un tableau
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer.push(arguments);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
 
     const script = document.createElement("script");
     script.id = SCRIPT_ID;
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-
-    const onLoad = () => {
-      window.dataLayer = window.dataLayer || [];
-
-      const gtag = (...args: unknown[]) => {
-        window.dataLayer.push(args);
-      };
-
-      window.gtag = gtag;
-      gtag("js", new Date());
-      gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
-    };
-
-    script.addEventListener("load", onLoad);
     document.head.appendChild(script);
-
-    return () => {
-      script.removeEventListener("load", onLoad);
-    };
   }, []);
 
   useEffect(() => {
